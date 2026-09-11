@@ -1,6 +1,6 @@
 ---
 title: task1
-date: 2024-09-11
+date: 2026-09-11
 tags: [代码, 作业]
 excerpt: easy
 ---
