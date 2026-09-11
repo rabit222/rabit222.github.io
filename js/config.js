@@ -19,14 +19,14 @@ const CONFIG = {
   /* ===== GitHub 仓库信息 =====
      用于生成「在 GitHub 上编辑」链接，也会用于自动检测部署路径。
      请改成你的用户名和仓库名。 */
-  githubUser: "Rabit222",
-  repo: "Rabit222.github.io",
+  githubUser: "rabit222",
+  repo: "rabit222.github.io",
   branch: "main",
   postsDir: "posts",
 
   /* ===== 社交链接（留空 "" 则不显示） ===== */
   social: {
-    github: "https://github.com/Rabit222",
+    github: "https://github.com/rabit222",
     twitter: "",
     email: "",
     rss: "",
@@ -44,7 +44,7 @@ const CONFIG = {
 
 ### 链接
 
-- **GitHub**: [@Rabit222](https://github.com/Rabit222)
+- **GitHub**: [@rabit222](https://github.com/rabit222)
 
 > 这个博客运行在 GitHub Pages 上。没有服务器，没有数据库，只有 Markdown 和网格。`,
 
