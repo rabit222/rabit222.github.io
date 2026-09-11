@@ -1,84 +1,52 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="一个基于 GitHub Pages 的个人博客">
-  <title>我的博客</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>&#9997;</text></svg>">
-
-  <!-- highlight.js 主题（浅色 + 暗色） -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css" id="hljs-light" media="(prefers-color-scheme: light)">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github-dark.min.css" id="hljs-dark" media="(prefers-color-scheme: dark)">
-
-  <!-- 本地样式 -->
-  <link rel="stylesheet" href="css/style.css">
+  <title>Rabit222</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='88'>🦊</text></svg>">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
-  <!-- 顶部导航 -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#/" class="site-title" id="site-title">我的博客</a>
-      <nav class="header-nav" id="header-nav">
+      <a href="#/" class="site-title">Rabit222</a>
+      <nav class="header-nav">
         <a href="#/">首页</a>
         <a href="#/tags">标签</a>
         <a href="#/archive">归档</a>
         <a href="#/about">关于</a>
       </nav>
       <div class="header-actions">
-        <button id="search-btn" class="icon-btn" title="搜索 (快捷键 /)" aria-label="搜索">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        </button>
-        <button id="theme-toggle" class="icon-btn" title="切换主题" aria-label="切换明暗主题">
-          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-        </button>
-        <a id="github-link" class="icon-btn" href="#" target="_blank" rel="noopener" title="GitHub 仓库" aria-label="GitHub 仓库">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.4.5 0 5.9 0 12.5c0 5.3 3.4 9.8 8.2 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 24 12.5C24 5.9 18.6.5 12 .5Z"/></svg>
-        </a>
+        <button id="search-btn" class="icon-btn" title="搜索 (按 /)">🔍</button>
+        <button id="theme-toggle" class="icon-btn" title="切换主题">🌓</button>
+        <a id="github-link" class="icon-btn" href="https://github.com/rabit222" target="_blank" title="GitHub">⌥</a>
       </div>
     </div>
   </header>
 
-  <!-- 主体内容 -->
   <main class="container" id="app">
-    <div class="loading">
-      <div class="spinner"></div>
-      <p>加载中…</p>
-    </div>
+    <div class="loading"><div class="spinner"></div><p>加载中…</p></div>
   </main>
 
-  <!-- 页脚 -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p id="footer-text">© 2024 我的博客 · Powered by GitHub Pages</p>
+    <div class="container">
+      <p>© 2024 Rabit222 · Powered by GitHub Pages</p>
     </div>
   </footer>
 
-  <!-- 搜索弹窗 -->
   <div id="search-modal" class="search-modal hidden">
     <div class="search-modal-inner">
-      <div class="search-input-wrap">
-        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <input type="text" id="search-input" placeholder="搜索文章…" autocomplete="off">
-        <button class="search-close" id="search-close" aria-label="关闭">Esc</button>
-      </div>
-      <div id="search-results" class="search-results"></div>
+      <input type="text" id="search-input" placeholder="搜索文章…" autocomplete="off">
+      <div id="search-results"></div>
     </div>
   </div>
 
-  <!-- 返回顶部 -->
-  <button id="back-to-top" class="back-to-top" title="回到顶部" aria-label="回到顶部">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
-  </button>
-
-  <!-- 第三方库 -->
   <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.11/dist/purify.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
-
-  <!-- 本地脚本（带版本号，更新代码后改版本号可强制浏览器重新下载） -->
-  <script src="js/config.js?v=20240911"></script>
-  <script src="js/main.js?v=20240911"></script>
+  <script src="js/config.js?v=2"></script>
+  <script src="js/main.js?v=2"></script>
 </body>
 </html>

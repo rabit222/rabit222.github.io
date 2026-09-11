@@ -1,4 +1,5 @@
-.codebuddy/
+node_modules/
 *.zip
 .DS_Store
-node_modules/
+__pycache__/
+*.pyc

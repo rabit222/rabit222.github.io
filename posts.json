@@ -1,15 +1,12 @@
-{
-  "posts": [
-    {
-      "slug": "task1",
-      "file": "posts/task1.md",
-      "title": "task1",
-      "date": "2026-09-11",
-      "tags": [
-        "代码",
-        "作业"
-      ],
-      "excerpt": "easy"
-    }
-  ]
-}
+[
+  {
+    "slug": "task1",
+    "title": "task1",
+    "date": "2024-09-11",
+    "tags": [
+      "代码",
+      "作业"
+    ],
+    "excerpt": "easy"
+  }
+]
