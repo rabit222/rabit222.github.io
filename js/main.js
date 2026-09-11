@@ -23,11 +23,12 @@
     return p;
   }
 
-  /** 发网络请求并缓存 */
+  /** 发网络请求并缓存（内存层） */
   const fetchCache = {};
   async function fetchText(url) {
     if (fetchCache[url]) return fetchCache[url];
-    const res = await fetch(url, { cache: "force-cache" });
+    // 用 no-store 避免浏览器缓存旧的 404/错误响应
+    const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) throw new Error(res.status);
     const text = await res.text();
     fetchCache[url] = text;
