@@ -46,8 +46,9 @@ async function renderList(page = 1, filter = null) {
 
   let html = `<h1 style="color:var(--accent);font-family:var(--font-mono);margin-bottom:20px">// 文章 (${posts.length})</h1><ul class="post-list">`;
   for (const p of pagePosts) {
+    const slugEnc = encodeURIComponent(p.slug);
     html += `<li class="post-item">
-      <div class="post-item-title"><a href="#/post/${p.slug}">${escapeHtml(p.title)}</a></div>
+      <div class="post-item-title"><a href="#/post/${slugEnc}">${escapeHtml(p.title)}</a></div>
       <div class="post-meta">${p.date} · ${(p.tags||[]).map(t=>`<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
       <div class="post-excerpt">${escapeHtml(p.excerpt || '')}</div>
     </li>`;
@@ -72,7 +73,7 @@ async function renderPost(slug) {
 
   app.innerHTML = '<div class="loading"><div class="spinner"></div><p>加载中…</p></div>';
   try {
-    const md = await fetchText(`${POSTS_DIR}/${slug}.md`);
+    const md = await fetchText(`${POSTS_DIR}/${encodeURIComponent(slug)}.md`);
     const body = md.replace(/^---[\s\S]*?---/, '').trim();
     const html = DOMPurify.sanitize(marked.parse(body));
 
@@ -91,8 +92,8 @@ async function renderPost(slug) {
       </div>
       <div class="article-body">${html}</div>
       <div class="post-nav">
-        ${prev ? `<a href="#/post/${prev.slug}">← ${escapeHtml(prev.title)}</a>` : '<span></span>'}
-        ${next ? `<a href="#/post/${next.slug}">${escapeHtml(next.title)} →</a>` : '<span></span>'}
+        ${prev ? `<a href="#/post/${encodeURIComponent(prev.slug)}">← ${escapeHtml(prev.title)}</a>` : '<span></span>'}
+        ${next ? `<a href="#/post/${encodeURIComponent(next.slug)}">${escapeHtml(next.title)} →</a>` : '<span></span>'}
       </div>
       <a class="edit-link" href="${editUrl}" target="_blank">在 GitHub 上编辑 →</a>
     </article>`;
@@ -132,7 +133,7 @@ async function renderArchive() {
   for (const p of sorted) {
     const y = p.date.slice(0, 4);
     if (y !== curYear) { curYear = y; html += `<div class="archive-year">${y}</div>`; }
-    html += `<div class="archive-item"><span class="archive-date">${p.date.slice(5)}</span><a href="#/post/${p.slug}">${escapeHtml(p.title)}</a></div>`;
+    html += `<div class="archive-item"><span class="archive-date">${p.date.slice(5)}</span><a href="#/post/${encodeURIComponent(p.slug)}">${escapeHtml(p.title)}</a></div>`;
   }
   app.innerHTML = html;
   document.title = `归档 · ${CONFIG.title}`;
@@ -175,7 +176,7 @@ function initSearch() {
       (p.tags||[]).some(t => t.toLowerCase().includes(q))
     );
     results.innerHTML = matched.length
-      ? matched.map(p => `<div class="search-result-item" onclick="location.hash='#/post/${p.slug}';document.getElementById('search-modal').classList.add('hidden')">
+      ? matched.map(p => `<div class="search-result-item" onclick="location.hash='#/post/${encodeURIComponent(p.slug)}';document.getElementById('search-modal').classList.add('hidden')">
           <div class="search-result-title">${escapeHtml(p.title)}</div>
           <div class="search-result-excerpt">${escapeHtml(p.excerpt||'')}</div>
         </div>`).join('')
@@ -226,7 +227,7 @@ async function router() {
   } else if (hash.startsWith('page/')) {
     await renderList(parseInt(hash.split('/')[1]) || 1);
   } else if (hash.startsWith('post/')) {
-    await renderPost(hash.slice(5));
+    await renderPost(decodeURIComponent(hash.slice(5)));
   } else if (hash.startsWith('tags/')) {
     await renderTags(decodeURIComponent(hash.slice(5)));
   } else if (hash === 'tags') {
