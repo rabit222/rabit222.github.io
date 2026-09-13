@@ -2,7 +2,7 @@
 title: Ook & BrianFuck
 date: 2026-09-11
 tags: [密码, falg]
-excerpt: 猎奇但我知道一个
+excerpt: 简单的解码
 ---
 
 思路：解码
