@@ -1,13 +1,46 @@
 ---
 title: 瑞士军刀
-date: 2026-09-11
-tags: [交互连网, flag]
-excerpt: ...
+date: 2024-09-11  # 注意时间修正
+tags: [Bugku, 交互连网, Pwn, Netcat]
+excerpt: 记录一次关于网络交互题的工具替换踩坑过程。
 ---
 
-思路：由ai得出要与网络建立连接，发送cat flag 获取旗帜
-问题：1.windows没有nc(Netcat)指令  2.脚本缺少对应库   3.pip版本过低    4.pycharm脚本无法使用python环境(???)
-解决：1.用python写脚本(ai)         2.用pip下载        3.下载最新版(ai)     4.cmd交互模式输入
+## 0. 题目信息
+- 方向：Misc / 交互
+- 目标：连接目标服务器，获取 flag
 
-总结：由于不熟悉比赛内容和解决办法,无法正确搞到对应工具(我只会python的一点点),很难找到有用的办法，
-      不过从评论区学会了很多名词，学习中...
+## 1. 初步分析
+题目提示“交互连网”，说明需要与靶机建立 TCP 连接。根据提示，连接成功后需要发送 `cat flag` 来获取旗帜。
+
+## 2. 踩坑与排错过程
+**问题 1：Windows 本地缺少 Netcat（nc）指令**
+- 尝试直接在 Windows CMD 中执行 `nc` 命令，提示命令不存在。
+- **解决**：由于本地无 Netcat，决定改用 Python 脚本实现网络连接。
+
+**问题 2：脚本缺少对应库 & pip 版本过低**
+- 直接运行 Python 脚本时，提示缺少 socket（或其他库）。
+- pip 安装时提示版本过低，无法拉取最新包。
+- **解决**：
+  1. 运行 `python -m pip install --upgrade pip` 升级 pip。
+  2. 安装所需库。
+
+**问题 3：PyCharm 无法使用 Python 环境**
+- 在 PyCharm 中运行脚本时无法识别解释器(找不到原因)。
+- **解决**：在 CMD 交互模式下直接运行 Python 脚本，绕过 PyCharm 环境问题。
+
+## 3. 利用过程 / EXP
+使用 Python 编写交互脚本（假设端口是 12345，请替换为真实端口）：
+（*注意：这里你需要把真实的 Python 代码贴进来，类似下面这样*）
+
+```python
+import socket
+
+host = "靶机IP"
+port = 端口
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect((host, port))
+# 发送命令
+s.sendall(b"cat flag\n")
+# 接收回显
+print(s.recv(1024).decode())
+s.close()
