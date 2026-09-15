@@ -22,17 +22,6 @@
     "excerpt": "简单的解码"
   },
   {
-    "slug": "bugku_%E7%91%9E%E5%A3%AB%E5%86%9B%E5%88%80.md",
-    "raw": "bugku_瑞士军刀.md",
-    "title": "瑞士军刀",
-    "date": "2026-09-11",
-    "tags": [
-      "交互连网",
-      "flag"
-    ],
-    "excerpt": "..."
-  },
-  {
     "slug": "bugku_%E8%81%AA%E6%98%8E%E7%9A%84%E5%B0%8F%F0%9F%90%8F.md",
     "raw": "bugku_聪明的小🐏.md",
     "title": "聪明的小🐏",
@@ -64,5 +53,18 @@
       "作业"
     ],
     "excerpt": "easy"
+  },
+  {
+    "slug": "bugku_%E7%91%9E%E5%A3%AB%E5%86%9B%E5%88%80.md",
+    "raw": "bugku_瑞士军刀.md",
+    "title": "瑞士军刀",
+    "date": "2024-09-11  # 注意时间修正",
+    "tags": [
+      "Bugku",
+      "交互连网",
+      "Pwn",
+      "Netcat"
+    ],
+    "excerpt": "记录一次关于网络交互题的工具替换踩坑过程。"
   }
 ]
