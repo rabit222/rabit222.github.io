@@ -31,7 +31,7 @@ excerpt:关于网络交互题的工具替换踩坑过程。
 ## 3. 利用过程 / EXP
 使用 Python 编写交互脚本：
 
-```python
+---python
 ---import socket
 
 ---host = "靶机IP"
