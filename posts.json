@@ -24,13 +24,15 @@
   {
     "slug": "bugku_%E8%81%AA%E6%98%8E%E7%9A%84%E5%B0%8F%F0%9F%90%8F.md",
     "raw": "bugku_聪明的小🐏.md",
-    "title": "聪明的小🐏",
+    "title": "Bugku - 聪明的小🐑",
     "date": "2026-09-11",
     "tags": [
-      "密码",
-      "falg"
+      "Bugku",
+      "密码学",
+      "栅栏密码",
+      "Crypto"
     ],
-    "excerpt": "还算常见"
+    "excerpt": "借助AI辅助分析并解出栅栏密码的过程。"
   },
   {
     "slug": "bugku_%E8%BF%99%E6%98%AF%E4%B8%80%E5%BC%A0%E5%8D%95%E7%BA%AF%E7%9A%84%E5%9B%BE%E7%89%87.md",
