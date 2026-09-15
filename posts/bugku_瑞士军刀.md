@@ -1,8 +1,8 @@
 ---
-title: 瑞士军刀
-date: 2026-09-11  
-tags: [Bugku, 交互连网, Pwn, Netcat]
-excerpt: 关于网络交互题的工具替换踩坑过程。
+title:瑞士军刀
+date:2026-09-11  
+tags:[Bugku, 交互连网, Pwn, Netcat]
+excerpt:关于网络交互题的工具替换踩坑过程。
 ---
 
 ## 0. 题目信息
@@ -32,14 +32,14 @@ excerpt: 关于网络交互题的工具替换踩坑过程。
 使用 Python 编写交互脚本：
 
 ```python
-import socket
+---import socket
 
-host = "靶机IP"
-port = 端口
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((host, port))
+---host = "靶机IP"
+---port = 端口
+---s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+---s.connect((host, port))
 # 发送命令
-s.sendall(b"cat flag\n")
+---s.sendall(b"cat flag\n")
 # 接收回显
-print(s.recv(1024).decode())
-s.close()
+---print(s.recv(1024).decode())
+---s.close()
