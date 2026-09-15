@@ -1,8 +1,8 @@
 ---
-title:瑞士军刀
-date:2026-09-11  
-tags:[Bugku, 交互连网, Pwn, Netcat]
-excerpt:关于网络交互题的工具替换踩坑过程。
+title: 瑞士军刀
+date: 2026-09-11  
+tags: [Bugku, 交互连网, Pwn, Netcat]
+excerpt: 关于网络交互题的工具替换踩坑过程。
 ---
 
 ## 0. 题目信息
