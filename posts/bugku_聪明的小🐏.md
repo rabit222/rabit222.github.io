@@ -1,8 +1,8 @@
 ---
 title: 聪明的小羊
-date:2026-09-11 
-tags:[Bugku, 密码学, 栅栏密码, Crypto] 
-excerpt:借助AI辅助分析并解出栅栏密码的过程。
+date: 2026-09-11 
+tags: [Bugku, 密码学, 栅栏密码, Crypto] 
+excerpt: 借助AI辅助分析并解出栅栏密码的过程。
 ---
 
 0. 题目信息
