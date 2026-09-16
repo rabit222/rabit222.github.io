@@ -1,7 +1,7 @@
 ---
 title: Linux 基础
 date: 2026-09-11
-tags: [Bugku, Linux, WSL, 环境搭建]
+tags: [Bugku, Linux, WSL,环境搭建]
 excerpt: 记录用 WSL 搭建 Linux 环境并完成基础命令题的过程。
 ---
 
