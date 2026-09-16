@@ -12,6 +12,19 @@
     "excerpt": "摩斯密码（拓展码）解题记录"
   },
   {
+    "slug": "bugku_linux.md",
+    "raw": "bugku_linux.md",
+    "title": "Linux 基础",
+    "date": "2026-09-11",
+    "tags": [
+      "Bugku",
+      "Linux",
+      "WSL",
+      "环境搭建"
+    ],
+    "excerpt": "记录用 WSL 搭建 Linux 环境并完成基础命令题的过程。"
+  },
+  {
     "slug": "bugku_ok%20%20%20%26%20%20bug_%5B%2B-%3C%3E%5D.md",
     "raw": "bugku_ok   &  bug_[+-<>].md",
     "title": "\"Ook & Brainfuck\"",
