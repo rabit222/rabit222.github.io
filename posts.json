@@ -1,5 +1,17 @@
 [
   {
+    "slug": "bugku_%E7%9C%BC%E8%A7%81%E4%B8%BA%E5%AE%9E.md",
+    "raw": "bugku_眼见为实.md",
+    "title": "眼见为实",
+    "date": "2026-09-16",
+    "tags": [
+      "Bugku",
+      "Misc",
+      "文件头"
+    ],
+    "excerpt": "记录从 Word 文档伪装成压缩包，最终解压出 HTML 获取 flag 的过程。"
+  },
+  {
     "slug": "bugku_%5C.-.md",
     "raw": "bugku_\\.-.md",
     "title": "\"-.-\"",
@@ -98,17 +110,5 @@
       "作业"
     ],
     "excerpt": "easy"
-  },
-  {
-    "slug": "bugku_%E7%9C%BC%E8%A7%81%E4%B8%BA%E5%AE%9E.md",
-    "raw": "bugku_眼见为实.md",
-    "title": "眼见为实",
-    "date": "2024-09-16",
-    "tags": [
-      "Bugku",
-      "Misc",
-      "文件头"
-    ],
-    "excerpt": "记录从 Word 文档伪装成压缩包，最终解压出 HTML 获取 flag 的过程。"
   }
 ]
