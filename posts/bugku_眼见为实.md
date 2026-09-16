@@ -1,5 +1,5 @@
 ---
-title: "眼见为实"
+title: 眼见为实
 date: 2024-09-16
 tags: [Bugku, Misc, 文件头, 后缀名]
 excerpt: 记录从 Word 文档伪装成压缩包，最终解压出 HTML 获取 flag 的过程。
