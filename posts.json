@@ -1,5 +1,17 @@
 [
   {
+    "slug": "bugku_easy-hash.md",
+    "raw": "bugku_easy-hash.md",
+    "title": "easy-hash",
+    "date": "2026-09-16",
+    "tags": [
+      "Bugku",
+      "密码学",
+      "md5"
+    ],
+    "excerpt": "解码MD5"
+  },
+  {
     "slug": "bugku_%E4%BD%A0%E4%BB%A5%E4%B8%BA%E6%98%AFMD5%E5%90%97.md",
     "raw": "bugku_你以为是MD5吗.md",
     "title": "你以为是MD5吗",
