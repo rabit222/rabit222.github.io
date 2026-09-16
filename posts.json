@@ -1,5 +1,17 @@
 [
   {
+    "slug": "bugku_%E4%BD%A0%E4%BB%A5%E4%B8%BA%E6%98%AFMD5%E5%90%97.md",
+    "raw": "bugku_你以为是MD5吗.md",
+    "title": "你以为是MD5吗",
+    "date": "2026-09-16",
+    "tags": [
+      "Bugku",
+      "MD5",
+      "Crypto"
+    ],
+    "excerpt": "记录用彩虹表查找哈希值。"
+  },
+  {
     "slug": "bugku_%E7%9C%BC%E8%A7%81%E4%B8%BA%E5%AE%9E.md",
     "raw": "bugku_眼见为实.md",
     "title": "眼见为实",
