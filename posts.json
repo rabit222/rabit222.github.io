@@ -48,6 +48,18 @@
     "excerpt": "摩斯密码（拓展码）解题记录"
   },
   {
+    "slug": "bugku_easy_Crypto.md",
+    "raw": "bugku_easy_Crypto.md",
+    "title": "easy_Crypto",
+    "date": "2026-09-11",
+    "tags": [
+      "Bugku",
+      "Crypto",
+      "摩斯密码"
+    ],
+    "excerpt": "摩斯密码（拓展码）解题"
+  },
+  {
     "slug": "bugku_linux.md",
     "raw": "bugku_linux.md",
     "title": "Linux 基础",
