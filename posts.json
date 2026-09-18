@@ -1,5 +1,17 @@
 [
   {
+    "slug": "bugku_linux2.md",
+    "raw": "bugku_linux2.md",
+    "title": "linux2",
+    "date": "2026-09-18",
+    "tags": [
+      "Bugku",
+      "linux",
+      "过滤"
+    ],
+    "excerpt": "window系统的linux指令使用"
+  },
+  {
     "slug": "bugku_easy-hash.md",
     "raw": "bugku_easy-hash.md",
     "title": "easy-hash",
