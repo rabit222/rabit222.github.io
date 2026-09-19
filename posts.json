@@ -78,9 +78,7 @@
     "date": "2026-09-11",
     "tags": [
       "Bugku",
-      "Linux",
-      "WSL",
-      "环境搭建"
+      "linux"
     ],
     "excerpt": "记录用 WSL 搭建 Linux 环境并完成基础命令题的过程。"
   },
