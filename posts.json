@@ -1,5 +1,17 @@
 [
   {
+    "slug": "bugku_easy_nbt.md",
+    "raw": "bugku_easy_nbt.md",
+    "title": "easy_nbt",
+    "date": "2026-09-19",
+    "tags": [
+      "Bugku",
+      "linux",
+      "nbt"
+    ],
+    "excerpt": "我的世界基于.gz的nbt数据保存方式"
+  },
+  {
     "slug": "bugku_linux2.md",
     "raw": "bugku_linux2.md",
     "title": "linux2",
