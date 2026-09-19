@@ -36,6 +36,19 @@
     "excerpt": "记录用彩虹表查找哈希值。"
   },
   {
+    "slug": "bugku_%E5%A4%9A%E7%A7%8D%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.md",
+    "raw": "bugku_多种解决办法.md",
+    "title": "多种解决办法",
+    "date": "2026-09-16",
+    "tags": [
+      "Bugku",
+      "杂项",
+      "二维码",
+      "Base64"
+    ],
+    "excerpt": "exe转txt，base64转二维码"
+  },
+  {
     "slug": "bugku_%E7%9C%BC%E8%A7%81%E4%B8%BA%E5%AE%9E.md",
     "raw": "bugku_眼见为实.md",
     "title": "眼见为实",
