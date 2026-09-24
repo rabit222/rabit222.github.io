@@ -148,6 +148,19 @@ main { padding: 32px 20px; min-height: 60vh; }
   font-size: 0.8rem; color: var(--muted); text-align: right;
 }
 
+/* Back to home */
+.back-home {
+  display: inline-block; margin-bottom: 18px;
+  padding: 6px 14px; border: 1px solid var(--accent); border-radius: 4px;
+  background: var(--bg2); color: var(--accent);
+  font-family: var(--font-mono); font-size: 0.85rem;
+  transition: all 0.2s;
+}
+.back-home:hover {
+  background: var(--accent); color: var(--bg);
+  box-shadow: 0 0 12px var(--accent); text-shadow: none;
+}
+
 /* Tag page */
 .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
 
@@ -197,6 +210,8 @@ main { padding: 32px 20px; min-height: 60vh; }
 
 /* Responsive */
 @media (max-width: 640px) {
-  .header-nav { display: none; }
-  .header-inner { justify-content: space-between; }
+  /* 原先这里把整条导航 display:none，手机上点进文章后就无法回到首页。
+     改为折到第二行，保证「首页 / 标签 / 归档 / 关于」始终可点。 */
+  .header-inner { flex-wrap: wrap; gap: 12px; justify-content: space-between; }
+  .header-nav { display: flex; order: 3; width: 100%; gap: 16px; font-size: 0.9rem; }
 }
