@@ -518,3 +518,71 @@ html[data-theme="light"]::after {
   background: radial-gradient(ellipse 92% 72% at 50% 42%, transparent 55%, rgba(0, 0, 0, 0.10) 100%);
 }
 
+/* ==========================================================================
+   安全提醒条 + 页脚标语
+   ========================================================================== */
+
+.security-ticker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent2);
+  border-radius: 6px;
+  background: var(--card-glass);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--fg);
+  box-shadow: 0 4px 20px rgba(255, 45, 149, 0.08);
+}
+
+/* 感叹号缓慢呼吸，比死图标更抓眼 */
+.sec-icon {
+  flex: none;
+  color: var(--accent2);
+  font-size: 1rem;
+  animation: sec-pulse 2.4s ease-in-out infinite;
+}
+@keyframes sec-pulse {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 1; }
+}
+
+.sec-text {
+  flex: 1;
+  transition: opacity 0.34s ease, transform 0.34s ease;
+}
+.sec-text.swap {
+  opacity: 0;
+  transform: translateY(-5px);
+}
+
+.sec-close {
+  flex: none;
+  width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--border); border-radius: 4px;
+  background: none; color: var(--muted);
+  font-size: 0.9rem; line-height: 1; cursor: pointer;
+  transition: color 0.18s, border-color 0.18s;
+}
+.sec-close:hover { color: var(--accent2); border-color: var(--accent2); }
+
+/* 页脚标语 */
+.footer-motto {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 640px) {
+  .security-ticker { font-size: 0.76rem; padding: 9px 12px; margin-top: 14px; }
+}
+
