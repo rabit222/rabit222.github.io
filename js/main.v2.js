@@ -107,6 +107,7 @@ async function renderPost(slug) {
       <a class="edit-link" href="${editUrl}" target="_blank">在 GitHub 上编辑 →</a>
     </article>`;
     document.title = `${post.title} · ${CONFIG.title}`;
+    enhanceArticle(app, post);
     window.scrollTo(0, 0);
   } catch (e) {
     app.innerHTML = `<p style="color:var(--accent2)">文章加载失败: ${escapeHtml(e.message)}</p>
@@ -224,11 +225,107 @@ function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
+// ===== 阅读体验增强 =====
+
+// 1) 顶部阅读进度条
+function initReadingProgress() {
+  const bar = document.createElement('div');
+  bar.className = 'reading-progress';
+  document.body.appendChild(bar);
+  const update = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = `scaleX(${max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0})`;
+  };
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+}
+
+// 2) 骨架屏
+function skeletonHtml(kind) {
+  if (kind === 'article') {
+    return `<div class="skeleton skeleton-title"></div>
+      <div class="skeleton skeleton-meta"></div>
+      <div class="skeleton skeleton-line"></div>
+      <div class="skeleton skeleton-line"></div>
+      <div class="skeleton skeleton-line short"></div>`;
+  }
+  let html = '';
+  for (let i = 0; i < 4; i++) {
+    html += `<div class="skeleton-card">
+      <div class="skeleton skeleton-title"></div>
+      <div class="skeleton skeleton-meta"></div>
+      <div class="skeleton skeleton-line"></div>
+      <div class="skeleton skeleton-line short"></div>
+    </div>`;
+  }
+  return html;
+}
+
+// 4) 文章页增强：目录 + 标题锚点
+function enhanceArticle(app, post) {
+  const body = app.querySelector('.article-body');
+  if (!body) return;
+
+  // 目录 + 标题锚点
+  const headings = [...body.querySelectorAll('h2, h3')];
+  if (headings.length >= 2) {
+    const toc = document.createElement('nav');
+    toc.className = 'toc';
+    const title = document.createElement('div');
+    title.className = 'toc-title';
+    title.textContent = '// 目录';
+    toc.appendChild(title);
+
+    const ul = document.createElement('ul');
+    headings.forEach((h, i) => {
+      const label = h.textContent.trim();       // 先取文字，再往里塞锚点按钮
+      const id = `sec-${i}`;
+      h.id = id;
+
+      // 注意：本站是 hash 路由，标题锚点绝不能用 href="#id"
+      // —— 那会被 router 当成路由解析成 404。所以只做点击滚动。
+      const anchor = document.createElement('button');
+      anchor.type = 'button';
+      anchor.className = 'heading-anchor';
+      anchor.title = '复制本段链接';
+      anchor.textContent = '#';
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = `${location.origin}${location.pathname}?p=${encodeURIComponent(post.slug)}`;
+        if (navigator.clipboard) navigator.clipboard.writeText(url).catch(() => {});
+        anchor.classList.add('copied');
+        setTimeout(() => anchor.classList.remove('copied'), 1200);
+      });
+      h.appendChild(anchor);
+
+      const li = document.createElement('li');
+      li.className = h.tagName === 'H3' ? 'toc-h3' : 'toc-h2';
+      const a = document.createElement('a');
+      a.href = 'javascript:void(0)';
+      a.textContent = label;
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        h.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    toc.appendChild(ul);
+
+    const header = app.querySelector('.article-header');
+    if (header) header.insertAdjacentElement('afterend', toc);
+    else body.insertAdjacentElement('beforebegin', toc);
+  }
+}
+
 // 路由
 async function router() {
   const hash = location.hash.slice(2) || '/';
   const app = document.getElementById('app');
-  app.innerHTML = '<div class="loading"><div class="spinner"></div><p>加载中…</p></div>';
+  app.classList.remove('page-enter');
+  // 骨架屏：文章页用文章骨架，其余用列表骨架
+  app.innerHTML = skeletonHtml(hash.startsWith('post/') ? 'article' : 'list');
 
   if (hash === '/' || hash === 'page/1') {
     document.title = CONFIG.title;
@@ -249,6 +346,10 @@ async function router() {
   } else {
     app.innerHTML = '<p>404 - 页面不存在 <a href="#/">返回首页</a></p>';
   }
+
+  // 入场动画：每次路由切换都重新触发
+  void app.offsetWidth;
+  app.classList.add('page-enter');
 }
 
 // 启动
@@ -256,6 +357,7 @@ async function router() {
   initTheme();
   initSearch();
   initBackToTop();
+  initReadingProgress();
   document.getElementById('github-link').href = CONFIG.social.github;
   await loadPosts();
   router();
