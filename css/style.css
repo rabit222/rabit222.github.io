@@ -215,3 +215,148 @@ main { padding: 32px 20px; min-height: 60vh; }
   .header-inner { flex-wrap: wrap; gap: 12px; justify-content: space-between; }
   .header-nav { display: flex; order: 3; width: 100%; gap: 16px; font-size: 0.9rem; }
 }
+
+/* ==========================================================================
+   质感增强层 —— 覆盖/扩展上面的基础样式
+   ========================================================================== */
+
+:root {
+  --header-bg: rgba(18, 18, 26, 0.72);
+  --card-hover: rgba(0, 240, 255, 0.10);
+  --shadow: 0 10px 34px rgba(0, 0, 0, 0.45);
+}
+[data-theme="light"] {
+  --header-bg: rgba(255, 255, 255, 0.78);
+  --card-hover: rgba(0, 153, 170, 0.08);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+}
+
+/* ---- 阅读进度条 ---- */
+.reading-progress {
+  position: fixed; top: 0; left: 0; z-index: 300;
+  height: 3px; width: 100%;
+  transform: scaleX(0); transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  box-shadow: 0 0 10px var(--accent);
+  pointer-events: none;
+}
+
+/* ---- 毛玻璃顶栏 ---- */
+.site-header {
+  background: var(--header-bg);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+}
+.header-nav a { position: relative; transition: color 0.2s; }
+.header-nav a::after {
+  content: ''; position: absolute; left: 0; right: 100%; bottom: -4px;
+  height: 1px; background: var(--accent); transition: right 0.22s ease;
+}
+.header-nav a:hover::after { right: 0; }
+
+/* ---- 卡片式文章列表 ---- */
+.post-list { display: flex; flex-direction: column; gap: 14px; }
+.post-item {
+  padding: 20px 22px;
+  border: 1px solid var(--border); border-radius: 10px;
+  background: var(--card);
+  position: relative; overflow: hidden;
+  transition: transform 0.22s ease, border-color 0.22s, box-shadow 0.22s;
+}
+.post-item:last-child { border-bottom: 1px solid var(--border); }
+.post-item::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: linear-gradient(180deg, var(--accent), var(--accent2));
+  opacity: 0; transition: opacity 0.22s;
+}
+.post-item:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px var(--card-hover);
+}
+.post-item:hover::before { opacity: 1; }
+.post-item-title a { transition: color 0.18s, letter-spacing 0.18s; }
+.post-item:hover .post-item-title a { color: var(--accent); letter-spacing: 0.3px; }
+
+/* ---- 路由切换入场动画 ---- */
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+#app.page-enter { animation: pageIn 0.32s cubic-bezier(0.22, 0.61, 0.36, 1); }
+
+/* ---- 骨架屏 ---- */
+.skeleton {
+  background: linear-gradient(90deg, var(--border) 25%, var(--bg2) 37%, var(--border) 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: 4px;
+}
+@keyframes shimmer { 0% { background-position: 100% 0; } 100% { background-position: 0 0; } }
+.skeleton-title { height: 26px; width: 62%; margin-bottom: 12px; }
+.skeleton-meta  { height: 13px; width: 34%; margin-bottom: 14px; }
+.skeleton-line  { height: 13px; margin-bottom: 10px; }
+.skeleton-line.short { width: 72%; }
+.skeleton-card {
+  padding: 20px 22px; margin-bottom: 14px;
+  border: 1px solid var(--border); border-radius: 10px; background: var(--card);
+}
+
+/* ---- 文章正文质感 ---- */
+.article-body { font-size: 1.02rem; line-height: 1.85; }
+.article-body ul, .article-body ol { padding-left: 22px; }
+.article-body li { margin: 0.3em 0; }
+.article-body li::marker { color: var(--accent); }
+.article-body blockquote { border-radius: 0 6px 6px 0; }
+.article-body img { box-shadow: var(--shadow); }
+.article-body hr { border: none; height: 1px; background: var(--border); margin: 2em 0; }
+
+/* ---- 目录 ---- */
+.toc { border-left: 3px solid var(--accent); }
+.toc ul { padding-left: 0; }
+.toc li { padding: 3px 0; }
+.toc-h3 { padding-left: 18px !important; }
+.toc-h3 a { font-size: 0.8rem; }
+.toc a { display: inline-block; transition: transform 0.16s, color 0.16s; }
+.toc a:hover { transform: translateX(3px); }
+
+/* ---- 标题锚点 ---- */
+.article-body h2, .article-body h3 { scroll-margin-top: 88px; }
+.heading-anchor {
+  margin-left: 10px; padding: 0 4px;
+  border: none; background: none; cursor: pointer;
+  color: var(--accent); font-family: var(--font-mono);
+  font-size: 0.75em; vertical-align: middle;
+  opacity: 0; transition: opacity 0.18s, color 0.18s;
+}
+.article-body h2:hover .heading-anchor,
+.article-body h3:hover .heading-anchor { opacity: 0.55; }
+.heading-anchor:hover { opacity: 1; }
+.heading-anchor.copied { opacity: 1; color: var(--accent2); }
+
+/* ---- 回到顶部 ---- */
+.back-to-top { backdrop-filter: blur(8px); transition: opacity 0.3s, transform 0.2s, box-shadow 0.2s; }
+.back-to-top.show:hover { transform: translateY(-3px) scale(1.06); }
+
+/* ---- 细节：滚动条 / 选中色 / 焦点环 ---- */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 6px; border: 2px solid var(--bg); }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+::selection { background: var(--accent); color: var(--bg); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+
+/* ---- 触屏设备：悬停才出现的元素改成常显 ---- */
+@media (hover: none) {
+  .heading-anchor { opacity: 0.5; }
+}
+
+/* ---- 尊重系统的「减少动态效果」 ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
