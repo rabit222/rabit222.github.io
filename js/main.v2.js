@@ -351,62 +351,56 @@ function enhanceArticle(app, post) {
   }
 }
 
-// 5) 顶部安全提醒轮播
-//    安全向博客的常驻提示：不点陌生链接 / 不乱扫码 / 不给验证码。
-const SECURITY_TIPS = [
-  '陌生链接不要点 —— 钓鱼站常伪装成登录页，先核对域名再输账号密码',
-  '二维码别乱扫 —— 扫码前看清跳转域名，谨防仿冒站点',
-  '文件后缀要看清 —— .exe / .scr / .bat / .lnk 一律先查毒再运行',
-  '验证码就是密码 —— 任何人向你索要验证码，都是诈骗',
-  '短链接先展开再点 —— 用展开服务确认真实域名后再决定',
-  '中奖 / 退款 / 客服改签 —— 官方不会主动索要密码或验证码',
-  '紧迫感是社工标配 —— "限时""马上冻结""仅剩 3 分钟"就该停手',
-  '需要登录时手动输官网地址 —— 不要从聊天窗口或邮件里点进去',
-  '陌生 U 盘、陌生安装包 —— 不插、不装、不"先看看再说"',
-  '拿不准就别点 —— 先问一句，比事后改密码便宜得多',
+// 5) 两侧留白处的安全标语（竖排）
+//    用短句：竖排时每个字占一行，长句会顶出屏幕。
+const SECURITY_RAILS = [
+  '⚠ 不点陌生链接',
+  '⚠ 不乱扫二维码',
+  '⚠ 验证码不给任何人',
+  '⚠ 不装来路不明的软件',
+  '⚠ 先核对域名再登录',
+  '⚠ 短链接先展开',
+  '⚠ 陌生 U 盘不要插',
+  '⚠ 拿不准就别点',
+  '⚠ 官方不会索要验证码',
+  '⚠ 可疑就先停手',
 ];
 
 function initSecurityTicker() {
-  const header = document.querySelector('.site-header');
-  if (!header) return;
-  // 关掉后本次会话内不再出现
-  if (sessionStorage.getItem('sec-tip-hidden') === '1') return;
-
-  const wrap = document.createElement('div');
-  wrap.className = 'container';
-
-  const bar = document.createElement('div');
-  bar.className = 'security-ticker';
-  bar.setAttribute('role', 'status');
-  bar.innerHTML = '<span class="sec-icon">⚠</span><span class="sec-text"></span>' +
-    '<button class="sec-close" type="button" title="关闭提醒" aria-label="关闭提醒">×</button>';
-
-  const text = bar.querySelector('.sec-text');
-  const close = bar.querySelector('.sec-close');
-  text.textContent = SECURITY_TIPS[0];
-
-  let i = 0;
-  let swapping = false;
-  const timer = setInterval(() => {
-    if (swapping) return;
-    swapping = true;
-    text.classList.add('swap');
-    setTimeout(() => {
-      i = (i + 1) % SECURITY_TIPS.length;
-      text.textContent = SECURITY_TIPS[i];
-      text.classList.remove('swap');
-      swapping = false;
-    }, 360);
-  }, 7000);
-
-  close.addEventListener('click', () => {
-    clearInterval(timer);
-    sessionStorage.setItem('sec-tip-hidden', '1');
-    wrap.remove();
+  // 左右各一条，初始错开半个列表，两边不同时出现同一句
+  const half = Math.floor(SECURITY_RAILS.length / 2);
+  const rails = ['left', 'right'].map((side, n) => {
+    const el = document.createElement('div');
+    el.className = `sec-rail sec-rail-${side}`;
+    el.setAttribute('role', 'status');
+    el.title = '点击换一条安全提醒';
+    const index = n === 0 ? 0 : half;
+    el.textContent = SECURITY_RAILS[index];
+    document.body.appendChild(el);
+    return { el, index };
   });
 
-  wrap.appendChild(bar);
-  header.insertAdjacentElement('afterend', wrap);
+  // 错峰轮播：右侧比左侧晚 900ms
+  setInterval(() => {
+    rails.forEach((r, n) => {
+      setTimeout(() => {
+        r.el.classList.add('swap');
+        setTimeout(() => {
+          r.index = (r.index + 1) % SECURITY_RAILS.length;
+          r.el.textContent = SECURITY_RAILS[r.index];
+          r.el.classList.remove('swap');
+        }, 340);
+      }, n * 900);
+    });
+  }, 7000);
+
+  // 点一下立刻换一条
+  rails.forEach((r) => {
+    r.el.addEventListener('click', () => {
+      r.index = (r.index + 1) % SECURITY_RAILS.length;
+      r.el.textContent = SECURITY_RAILS[r.index];
+    });
+  });
 }
 
 // 路由
