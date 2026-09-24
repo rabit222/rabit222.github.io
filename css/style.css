@@ -391,6 +391,9 @@ html::before {
   background-size: 64px 64px;
   -webkit-mask-image: radial-gradient(ellipse 78% 62% at 50% 8%, #000 8%, transparent 76%);
   mask-image: radial-gradient(ellipse 78% 62% at 50% 8%, #000 8%, transparent 76%);
+  /* 视差用独立的 translate 属性：它和下面的 transform 动画互不覆盖，
+     所以「自动漂移」和「跟随鼠标」能同时生效。 */
+  translate: var(--px) var(--py);
   animation: bg-grid-drift 26s linear infinite;
 }
 @keyframes bg-grid-drift {
@@ -398,23 +401,32 @@ html::before {
   to   { transform: translate3d(64px, 64px, 0); }
 }
 
-/* ---- 第 2 层：CRT 扫描线 ---- */
+/* ---- 第 2 层：跟随鼠标的柔光 + CRT 扫描线 ----
+   柔光的圆心由 --mx/--my 决定，所以它跟着指针走。
+   扫描线动画用「逐层 background-position」，这样只动扫描线、不动柔光。 */
 html::after {
   content: '';
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 240, 255, 0.05) 0 1px,
-    transparent 1px 4px
-  );
+  background:
+    radial-gradient(
+      circle 380px at var(--mx) var(--my),
+      rgba(0, 240, 255, 0.15),
+      rgba(0, 240, 255, 0.05) 42%,
+      transparent 70%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 240, 255, 0.05) 0 1px,
+      transparent 1px 4px
+    );
   animation: bg-scan 6s linear infinite;
 }
 @keyframes bg-scan {
-  from { background-position: 0 0; }
-  to   { background-position: 0 4px; }
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 0 0, 0 4px; }
 }
 
 /* ---- 第 3 层：极光光斑（渐变本身够软，不用 blur，省性能）---- */
@@ -452,7 +464,15 @@ body::after {
 }
 
 /* ---- 卡片改成半透明毛玻璃，让背景光影透上来 ---- */
-:root { --card-glass: rgba(18, 18, 26, 0.62); }
+/* ---- 交互变量：JS 会实时改写这四个值 ----
+   --mx/--my 柔光圆心（视口百分比），--px/--py 网格视差偏移 */
+:root {
+  --mx: 50%;
+  --my: 28%;
+  --px: 0px;
+  --py: 0px;
+  --card-glass: rgba(18, 18, 26, 0.62);
+}
 [data-theme="light"] { --card-glass: rgba(255, 255, 255, 0.74); }
 .post-item,
 .toc,
@@ -486,7 +506,13 @@ html[data-theme="light"]::before {
     linear-gradient(90deg, rgba(0, 120, 140, 0.10) 1px, transparent 1px);
 }
 html[data-theme="light"]::after {
-  background: repeating-linear-gradient(0deg, rgba(0, 120, 140, 0.05) 0 1px, transparent 1px 4px);
+  background:
+    radial-gradient(
+      circle 380px at var(--mx) var(--my),
+      rgba(0, 150, 180, 0.13),
+      transparent 68%
+    ),
+    repeating-linear-gradient(0deg, rgba(0, 120, 140, 0.05) 0 1px, transparent 1px 4px);
 }
 [data-theme="light"] body::after {
   background: radial-gradient(ellipse 92% 72% at 50% 42%, transparent 55%, rgba(0, 0, 0, 0.10) 100%);
