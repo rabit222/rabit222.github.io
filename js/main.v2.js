@@ -241,7 +241,39 @@ function initReadingProgress() {
   update();
 }
 
-// 2) 骨架屏
+// 2) 背景交互：鼠标位置 -> CSS 变量（--mx/--my 柔光位置，--px/--py 网格视差）
+//    用「缓动跟随」而不是直接赋值，光斑会有一点拖尾惯性，观感更高级。
+function initBackgroundFx() {
+  // 触屏没有指针悬停，直接跳过（CSS 里 --mx/--my 有静态默认值）
+  if (window.matchMedia('(hover: none)').matches) return;
+
+  const root = document.documentElement;
+  let targetX = 0.5, targetY = 0.3;   // 鼠标归一化坐标
+  let curX = targetX, curY = targetY; // 缓动后的当前值
+  let raf = 0;
+
+  const tick = () => {
+    curX += (targetX - curX) * 0.12;
+    curY += (targetY - curY) * 0.12;
+
+    root.style.setProperty('--mx', `${(curX * 100).toFixed(2)}%`);
+    root.style.setProperty('--my', `${(curY * 100).toFixed(2)}%`);
+    // 网格往鼠标反方向挪一点点，制造纵深
+    root.style.setProperty('--px', `${((0.5 - curX) * 28).toFixed(1)}px`);
+    root.style.setProperty('--py', `${((0.5 - curY) * 28).toFixed(1)}px`);
+
+    const settled = Math.abs(targetX - curX) < 0.0005 && Math.abs(targetY - curY) < 0.0005;
+    raf = settled ? 0 : requestAnimationFrame(tick);
+  };
+
+  window.addEventListener('mousemove', (e) => {
+    targetX = e.clientX / window.innerWidth;
+    targetY = e.clientY / window.innerHeight;
+    if (!raf) raf = requestAnimationFrame(tick);
+  }, { passive: true });
+}
+
+// 3) 骨架屏
 function skeletonHtml(kind) {
   if (kind === 'article') {
     return `<div class="skeleton skeleton-title"></div>
@@ -358,6 +390,7 @@ async function router() {
   initSearch();
   initBackToTop();
   initReadingProgress();
+  initBackgroundFx();
   document.getElementById('github-link').href = CONFIG.social.github;
   await loadPosts();
   router();
