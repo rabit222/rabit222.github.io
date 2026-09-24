@@ -73,18 +73,6 @@
     "excerpt": "记录从 Word 文档伪装成压缩包，最终解压出 HTML 获取 flag 的过程。"
   },
   {
-    "slug": "bugku_%5C.-.md",
-    "raw": "bugku_\\.-.md",
-    "title": "\"-.-\"",
-    "date": "2026-09-11",
-    "tags": [
-      "Bugku",
-      "密码学",
-      "摩斯密码"
-    ],
-    "excerpt": "摩斯密码（拓展码）解题记录"
-  },
-  {
     "slug": "bugku_easy_Crypto.md",
     "raw": "bugku_easy_Crypto.md",
     "title": "easy_Crypto",
@@ -119,6 +107,18 @@
       "Ook"
     ],
     "excerpt": "记录借助在线工具解码 Ook 和 Brainfuck 密码的过程。"
+  },
+  {
+    "slug": "bugku_%E2%80%9C%5C.-%E2%80%9D.md",
+    "raw": "bugku_“\\.-”.md",
+    "title": "\"-.-\"",
+    "date": "2026-09-11",
+    "tags": [
+      "Bugku",
+      "密码学",
+      "摩斯密码"
+    ],
+    "excerpt": "摩斯密码（拓展码）解题记录"
   },
   {
     "slug": "bugku_%E4%B8%80%E6%AE%B5%E6%96%B0%E9%97%BB.md",
