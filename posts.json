@@ -1,5 +1,17 @@
 [
   {
+    "slug": "bugku_%E5%AE%BD%E5%B8%A6%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2.md",
+    "raw": "bugku_宽带信息泄露.md",
+    "title": "宽带信息泄露",
+    "date": "2026-09-24",
+    "tags": [
+      "Bugku",
+      "MISC",
+      "信息泄露"
+    ],
+    "excerpt": "用 RouterPassView 解密路由器备份文件 conf.bin，提取出宽带用户名。"
+  },
+  {
     "slug": "bugku_easy_nbt.md",
     "raw": "bugku_easy_nbt.md",
     "title": "easy_nbt",
