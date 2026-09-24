@@ -6,6 +6,10 @@ const POSTS_DIR = `${BASE}/posts`;
 
 let allPosts = [];
 
+// 文章页/子页面统一的「返回首页」入口。
+// 手机端（<=640px）顶栏导航整条被 CSS 隐藏，没有这个按钮就会卡在文章里出不去。
+const BACK_HOME = '<a class="back-home" href="#/">← 返回首页</a>';
+
 // marked 配置
 marked.setOptions({ breaks: true, gfm: true });
 marked.use({ renderer: { code: (code, lang) => {
@@ -90,6 +94,7 @@ async function renderPost(slug) {
     const editUrl = `https://github.com/${CONFIG.githubUser}/${CONFIG.repo}/edit/${CONFIG.branch}/${CONFIG.postsDir}/${post.raw}`;
 
     app.innerHTML = `<article class="article">
+      ${BACK_HOME}
       <div class="article-header">
         <h1 class="article-title">${escapeHtml(post.title)}</h1>
         <div class="article-meta">${post.date} · ${(post.tags||[]).map(t=>`<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
@@ -119,7 +124,7 @@ async function renderTags(tag) {
     return renderList(1, p => (p.tags||[]).includes(tag));
   }
 
-  let html = `<h1 style="color:var(--accent);font-family:var(--font-mono);margin-bottom:20px">// 标签</h1><div class="tag-cloud">`;
+  let html = `${BACK_HOME}<h1 style="color:var(--accent);font-family:var(--font-mono);margin-bottom:20px">// 标签</h1><div class="tag-cloud">`;
   for (const [t, c] of Object.entries(tagSet).sort((a,b)=>b[1]-a[1])) {
     html += `<a href="#/tags/${encodeURIComponent(t)}"><span class="tag">${escapeHtml(t)} (${c})</span></a>`;
   }
@@ -133,7 +138,7 @@ async function renderArchive() {
   const app = document.getElementById('app');
   const sorted = [...allPosts].sort((a,b) => new Date(b.date) - new Date(a.date));
   let curYear = '';
-  let html = `<h1 style="color:var(--accent);font-family:var(--font-mono);margin-bottom:20px">// 归档</h1>`;
+  let html = `${BACK_HOME}<h1 style="color:var(--accent);font-family:var(--font-mono);margin-bottom:20px">// 归档</h1>`;
   for (const p of sorted) {
     const y = p.date.slice(0, 4);
     if (y !== curYear) { curYear = y; html += `<div class="archive-year">${y}</div>`; }
@@ -147,7 +152,7 @@ async function renderArchive() {
 async function renderAbout() {
   const app = document.getElementById('app');
   const html = DOMPurify.sanitize(marked.parse(CONFIG.about));
-  app.innerHTML = `<article class="article"><div class="article-body">${html}</div></article>`;
+  app.innerHTML = `<article class="article">${BACK_HOME}<div class="article-body">${html}</div></article>`;
   document.title = `关于 · ${CONFIG.title}`;
 }
 
