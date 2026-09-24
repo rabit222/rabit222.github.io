@@ -351,6 +351,64 @@ function enhanceArticle(app, post) {
   }
 }
 
+// 5) 顶部安全提醒轮播
+//    安全向博客的常驻提示：不点陌生链接 / 不乱扫码 / 不给验证码。
+const SECURITY_TIPS = [
+  '陌生链接不要点 —— 钓鱼站常伪装成登录页，先核对域名再输账号密码',
+  '二维码别乱扫 —— 扫码前看清跳转域名，谨防仿冒站点',
+  '文件后缀要看清 —— .exe / .scr / .bat / .lnk 一律先查毒再运行',
+  '验证码就是密码 —— 任何人向你索要验证码，都是诈骗',
+  '短链接先展开再点 —— 用展开服务确认真实域名后再决定',
+  '中奖 / 退款 / 客服改签 —— 官方不会主动索要密码或验证码',
+  '紧迫感是社工标配 —— "限时""马上冻结""仅剩 3 分钟"就该停手',
+  '需要登录时手动输官网地址 —— 不要从聊天窗口或邮件里点进去',
+  '陌生 U 盘、陌生安装包 —— 不插、不装、不"先看看再说"',
+  '拿不准就别点 —— 先问一句，比事后改密码便宜得多',
+];
+
+function initSecurityTicker() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  // 关掉后本次会话内不再出现
+  if (sessionStorage.getItem('sec-tip-hidden') === '1') return;
+
+  const wrap = document.createElement('div');
+  wrap.className = 'container';
+
+  const bar = document.createElement('div');
+  bar.className = 'security-ticker';
+  bar.setAttribute('role', 'status');
+  bar.innerHTML = '<span class="sec-icon">⚠</span><span class="sec-text"></span>' +
+    '<button class="sec-close" type="button" title="关闭提醒" aria-label="关闭提醒">×</button>';
+
+  const text = bar.querySelector('.sec-text');
+  const close = bar.querySelector('.sec-close');
+  text.textContent = SECURITY_TIPS[0];
+
+  let i = 0;
+  let swapping = false;
+  const timer = setInterval(() => {
+    if (swapping) return;
+    swapping = true;
+    text.classList.add('swap');
+    setTimeout(() => {
+      i = (i + 1) % SECURITY_TIPS.length;
+      text.textContent = SECURITY_TIPS[i];
+      text.classList.remove('swap');
+      swapping = false;
+    }, 360);
+  }, 7000);
+
+  close.addEventListener('click', () => {
+    clearInterval(timer);
+    sessionStorage.setItem('sec-tip-hidden', '1');
+    wrap.remove();
+  });
+
+  wrap.appendChild(bar);
+  header.insertAdjacentElement('afterend', wrap);
+}
+
 // 路由
 async function router() {
   const hash = location.hash.slice(2) || '/';
@@ -391,6 +449,7 @@ async function router() {
   initBackToTop();
   initReadingProgress();
   initBackgroundFx();
+  initSecurityTicker();
   document.getElementById('github-link').href = CONFIG.social.github;
   await loadPosts();
   router();
