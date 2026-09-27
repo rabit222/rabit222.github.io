@@ -1,3 +1,61 @@
+
+// ===== 单文件补丁：不改 style.css / index.html 也能加题源按钮 =====
+// 1) 样式运行时注入
+const PLATFORM_CSS = `/* 主页题源分区按钮（Bugku / CTFHub，带已写 wp 篇数） */
+.platform-bar { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 24px; }
+.platform-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border: 1px solid var(--border); border-radius: 4px;
+  background: var(--bg2); color: var(--fg);
+  font-family: var(--font-mono); font-size: 0.95rem;
+  transition: all 0.2s;
+}
+`;
+function injectPlatformCss() {
+  if (document.getElementById('platform-css')) return;
+  const el = document.createElement('style');
+  el.id = 'platform-css';
+  el.textContent = PLATFORM_CSS;
+  document.head.appendChild(el);
+}
+// 2) 分区改用 ?platform=xxx，按钮链接也改写成 query，
+//    这样不依赖 index.html 里的版本号，老缓存页面点进去也能正常过滤
+(function platformNavShim() {
+  var q = new URLSearchParams(location.search).get('platform');
+  if (!q && /^#\/platform\//.test(location.hash)) q = decodeURIComponent(location.hash.slice(10));
+  if (q) {
+    var url = location.pathname + '?platform=' + encodeURIComponent(q);
+    history.replaceState(null, '', url + '#/');
+  }
+  window.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest && e.target.closest('a[href^="#/platform/"]');
+    if (!a) return;
+    e.preventDefault();
+    var name = decodeURIComponent(a.getAttribute('href').slice(11));
+    location.href = location.pathname + '?platform=' + encodeURIComponent(name) + '#/';
+  }, true);
+})();
+function platformQuery() {
+  return new URLSearchParams(location.search).get('platform');
+}
+const PLATFORMS = [
+  { name: 'Bugku',  keywords: ['bugku'] },
+  { name: 'CTFHub', keywords: ['ctfhub', 'ctf-hub'] },
+];
+function postPlatform(p) {
+  const hay = [p.title || '', p.raw || '', p.slug || '', ...(p.tags || [])].join(' ').toLowerCase();
+  for (const pf of PLATFORMS) if (pf.keywords.some(k => hay.includes(k))) return pf.name;
+  return null;
+}
+function platformBarHtml(active) {
+  let html = '<div class="platform-bar">';
+  html += `<a class="platform-btn${!active ? ' platform-active' : ''}" href="${location.pathname}">全部 <span class="platform-count">${allPosts.length}</span></a>`;
+  for (const pf of PLATFORMS) {
+    const n = allPosts.filter(p => postPlatform(p) === pf.name).length;
+    html += `<a class="platform-btn${active === pf.name ? ' platform-active' : ''}" href="#/platform/${encodeURIComponent(pf.name)}">${escapeHtml(pf.name)} <span class="platform-count">${n}</span></a>`;
+  }
+  return html + '</div>';
+}
 // ===== Rabit222 博客核心逻辑 =====
 // slug 是 build.py 直接生成的 URL 编码文件名（含 .md），前端不做任何编码
 const BASE = window.location.pathname.replace(/\/$/, '');
@@ -37,8 +95,39 @@ async function loadPosts() {
   }
 }
 
+// ===== 题源分区（主页按钮） =====
+// 每张卡片 = 一个平台，keywords 命中 title / slug / tags 任意一项即算这个平台。
+// posts.json 里的 tags 已经带平台名（Bugku / CTFHub），slug 里也有前缀，两条路都写上了。
+// 新增题源只要往这个数组里加一项，主页按钮会自动多一个。
+const PLATFORMS = [
+  { name: 'Bugku',  keywords: ['bugku'] },
+  { name: 'CTFHub', keywords: ['ctfhub', 'ctf-hub'] },
+];
+
+// 一篇文章归属的平台；没识别出来返回 null（比如 task1 那种代码作业）
+function postPlatform(p) {
+  const hay = [p.title || '', p.raw || '', p.slug || '', ...(p.tags || [])]
+    .join(' ').toLowerCase();
+  for (const pf of PLATFORMS) {
+    if (pf.keywords.some(k => hay.includes(k))) return pf.name;
+  }
+  return null;
+}
+
+// 主页的题源按钮，带上各平台已写 wp 的篇数
+function platformBarHtml(active) {
+  let html = '<div class="platform-bar">';
+  html += `<a class="platform-btn${!active ? ' platform-active' : ''}" href="#/">全部 <span class="platform-count">${allPosts.length}</span></a>`;
+  for (const pf of PLATFORMS) {
+    const n = allPosts.filter(p => postPlatform(p) === pf.name).length;
+    html += `<a class="platform-btn${active === pf.name ? ' platform-active' : ''}" href="#/platform/${encodeURIComponent(pf.name)}">${escapeHtml(pf.name)} <span class="platform-count">${n}</span></a>`;
+  }
+  html += '</div>';
+  return html;
+}
+
 // 渲染列表页
-async function renderList(page = 1, filter = null) {
+async function renderList(page = 1, filter = null, activePlatform = null) {
   const app = document.getElementById('app');
   let posts = [...allPosts];
   if (filter) posts = posts.filter(filter);
@@ -50,7 +139,9 @@ async function renderList(page = 1, filter = null) {
   const start = (page - 1) * perPage;
   const pagePosts = posts.slice(start, start + perPage);
 
-  let html = `<h1 style="color:var(--accent);font-family:var(--font-mono);margin-bottom:20px">// 文章 (${posts.length})</h1><ul class="post-list">`;
+  let html = platformBarHtml(activePlatform);
+  const heading = activePlatform ? `// ${activePlatform} 题解 (${posts.length})` : `// 文章 (${posts.length})`;
+  html += `<h1 style="color:var(--accent);font-family:var(--font-mono);margin-bottom:20px">${heading}</h1><ul class="post-list">`;
   for (const p of pagePosts) {
     // slug 已经是 URL 编码后的完整文件名（含 .md），直接拼接到链接
     html += `<li class="post-item">
@@ -413,7 +504,14 @@ async function router() {
 
   if (hash === '/' || hash === 'page/1') {
     document.title = CONFIG.title;
-    await renderList(1);
+    await renderList(1, null, null);
+  } else if (hash.startsWith('platform/')) {
+    // 题源分区：主页按钮点进来，只列该平台的题解
+    const name = decodeURIComponent(hash.slice(9));
+    document.title = `${name} · ${CONFIG.title}`;
+    // 分页走 page/ 会丢平台条件，所以按平台分页时直接用这个平台的过滤条件
+    const onPlatform = p => postPlatform(p) === name;
+    await renderList(1, onPlatform, name);
   } else if (hash.startsWith('page/')) {
     await renderList(parseInt(hash.split('/')[1]) || 1);
   } else if (hash.startsWith('post/')) {
@@ -438,6 +536,7 @@ async function router() {
 
 // 启动
 (async function init() {
+  injectPlatformCss();
   initTheme();
   initSearch();
   initBackToTop();
