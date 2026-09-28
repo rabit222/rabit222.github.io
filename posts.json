@@ -193,6 +193,19 @@
     "excerpt": "按提示改 User-Agent，页面弹窗给出 flag。"
   },
   {
+    "slug": "ctfhub_Web_HTTP%E5%8D%8F%E8%AE%AE_%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F.md",
+    "raw": "ctfhub_Web_HTTP协议_请求方式.md",
+    "title": "\"CTFHub HTTP Method\"",
+    "date": "2026-09-27",
+    "tags": [
+      "CTFHub",
+      "Web",
+      "HTTP",
+      "请求方法"
+    ],
+    "excerpt": "记录通过修改 HTTP 请求方法获取 flag 的过程。"
+  },
+  {
     "slug": "bugku_%E8%AE%A1%E7%AE%97%E5%99%A8.md",
     "raw": "bugku_计算器.md",
     "title": "计算器",
