@@ -17,6 +17,6 @@ excerpt: 记录通过修改 HTTP 请求方法获取 flag 的过程。
 2. 由于浏览器地址栏只能发 GET，决定使用浏览器开发者工具（F12）的 Console 面板，利用 `fetch` API 发送自定义请求。
 3. 在 Console 中输入以下 JavaScript 代码：
 ```javascript
-fetch("http://challenge-1c6285a051a2677d.sandbox.ctfhub.com:10800/index.php", {method: "CTF**B"})
+fetch("http://challenge-1c6285a051a2677d.sandbox.ctfhub.com:10800/index.php", {method: "CTFHUB"})
   .then(res => res.text())
   .then(text => console.log(text));
