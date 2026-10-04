@@ -1,5 +1,5 @@
 ---
-title: "CTFHub 目录遍历 (Directory Indexing)"
+title: CTFHub 目录遍历
 date: 2026-10-04
 tags: [CTFHub, Web, 目录遍历, Directory Indexing]
 excerpt: 记录通过探测并遍历 Web 服务器上的隐藏目录获取 flag 的过程。
