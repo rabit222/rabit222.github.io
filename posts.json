@@ -169,6 +169,20 @@
     "excerpt": "伪装请求头身份，拿到 flag。"
   },
   {
+    "slug": "ctfhub_Web_HTTP_basicAuth.md",
+    "raw": "ctfhub_Web_HTTP_basicAuth.md",
+    "title": "\"CTFHub 基础认证\"",
+    "date": "2026-09-29",
+    "tags": [
+      "CTFHub",
+      "Web",
+      "基础认证",
+      "Basic Auth",
+      "爆破"
+    ],
+    "excerpt": "记录通过自动化爆破 HTTP Basic Auth 获取 flag 的过程。"
+  },
+  {
     "slug": "bugku_%E4%BD%A0%E5%BF%85%E9%A1%BB%E8%A6%81%E8%AE%A9%E4%BB%96%E5%81%9C%E4%B8%8B.md",
     "raw": "bugku_你必须要让他停下.md",
     "title": "你必须要让他停下",
@@ -204,19 +218,6 @@
       "请求头"
     ],
     "excerpt": "按提示改 User-Agent，页面弹窗给出 flag。"
-  },
-  {
-    "slug": "ctfhub_Web_HTTP_basicAuth.md",
-    "raw": "ctfhub_Web_HTTP_basicAuth.md",
-    "title": "\"CTFHub 未授权访问\"",
-    "date": "2026-09-27",
-    "tags": [
-      "CTFHub",
-      "Web",
-      "未授权访问",
-      "权限绕过"
-    ],
-    "excerpt": "记录通过探测隐藏路径获取 flag 的过程。"
   },
   {
     "slug": "ctfhub_Web_HTTP_cookie.md",
