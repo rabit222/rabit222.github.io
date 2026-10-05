@@ -1,6 +1,6 @@
 ---
 title: 抄错的字符
-date: 2026-10-03
+date: 2026-09-27
 tags: [Bugku, Crypto, 编码]
 excerpt: 识别被改坏的编码串，替换非法字符后解码。
 ---
