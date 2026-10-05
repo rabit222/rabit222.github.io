@@ -12,18 +12,6 @@
     "excerpt": "反编译 APK，定位判断逻辑拿到 flag。"
   },
   {
-    "slug": "bugku_%E9%BB%84%E9%81%93%E5%8D%81%E4%BA%8C%E5%AE%AB.md",
-    "raw": "bugku_黄道十二宫.md",
-    "title": "黄道十二宫",
-    "date": "2026-10-07",
-    "tags": [
-      "Bugku",
-      "Crypto",
-      "替换密码"
-    ],
-    "excerpt": "黄道十二宫符号密码，按替换表还原明文。"
-  },
-  {
     "slug": "ctfhub_Web_Informationleak_directorytraversal.md",
     "raw": "ctfhub_Web_Informationleak_directorytraversal.md",
     "title": "目录遍历",
@@ -206,6 +194,18 @@
       "隐写"
     ],
     "excerpt": "图片隐写，按顺序排查后提取隐藏数据。"
+  },
+  {
+    "slug": "bugku_%E9%BB%84%E9%81%93%E5%8D%81%E4%BA%8C%E5%AE%AB.md",
+    "raw": "bugku_黄道十二宫.md",
+    "title": "黄道十二宫",
+    "date": "2026-09-27",
+    "tags": [
+      "Bugku",
+      "Crypto",
+      "替换密码"
+    ],
+    "excerpt": "黄道十二宫符号密码，按替换表还原明文。"
   },
   {
     "slug": "ctfhub_Web_HTTP_cookie.md",
