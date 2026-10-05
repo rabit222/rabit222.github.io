@@ -1,5 +1,5 @@
 ---
-title: "CTFHub 基础认证"
+title: 基础认证
 date: 2026-09-29
 tags: [CTFHub, Web, 基础认证, Basic Auth, 爆破]
 excerpt: 记录通过自动化爆破 HTTP Basic Auth 获取 flag 的过程。
