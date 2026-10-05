@@ -598,3 +598,163 @@ html[data-theme="light"]::after {
   letter-spacing: 0.5px;
 }
 
+/* ============================================================
+   主页题源导航
+   —— 主页现在只有这排按钮，它们从边角料变成主角，所以单独做一套。
+      原来的 .platform-btn（列表页顶部那条）保持原样不动。
+   ============================================================ */
+
+.home-hero { padding: 12px 0 48px; }
+
+.hero-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent2);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+.hero-title {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  line-height: 1.15;
+  color: var(--fg);
+  margin: 0 0 12px;
+}
+.hero-desc {
+  color: var(--muted);
+  margin: 0 0 6px;
+}
+.hero-hint {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin: 0 0 28px;
+}
+
+/* 主页用网格排布；列表页仍走原来的 flex 横排 */
+.platform-bar.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+
+.platform-grid .platform-btn {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 22px 24px 20px;
+  border-radius: 10px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  transition: transform .25s cubic-bezier(.2,.8,.3,1),
+              border-color .25s, box-shadow .25s, color .25s;
+  animation: cardIn .45s cubic-bezier(.2,.8,.3,1) backwards;
+}
+
+/* 悬停：上浮 + 边框点亮 + 外发光 */
+.platform-grid .platform-btn:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 10px 26px -10px var(--accent), 0 0 0 1px var(--accent) inset;
+}
+/* 按压：落回去一点，有回弹手感 */
+.platform-grid .platform-btn:active {
+  transform: translateY(-1px) scale(.985);
+  box-shadow: 0 4px 14px -8px var(--accent), 0 0 0 1px var(--accent) inset;
+}
+/* 键盘可达：焦点圈用 accent，别依赖浏览器默认那圈蓝 */
+.platform-grid .platform-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* 掠光：只在悬停时从左扫到右，纯 transform，不动 layout */
+.platform-grid .platform-btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -70%;
+  width: 55%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(0,240,255,.16), transparent);
+  transform: skewX(-18deg);
+  opacity: 0;
+  pointer-events: none;
+}
+.platform-grid .platform-btn:hover::after {
+  animation: shine .65s cubic-bezier(.3,.7,.4,1);
+}
+
+/* 卡片内部：分区名 / 篇数 / 说明 */
+.platform-grid .platform-name {
+  font-size: 0.95rem;
+  letter-spacing: .5px;
+}
+.platform-grid .platform-count {
+  font-size: 2.1rem;
+  line-height: 1.05;
+  font-weight: 700;
+  color: var(--accent);
+  border: 0;
+  padding: 0;
+  background: none;
+}
+.platform-grid .platform-sub {
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+/* 悬停 / 激活时篇数转成品红，跟原来的配色逻辑一致 */
+.platform-grid .platform-btn:hover .platform-count,
+.platform-grid .platform-btn.platform-active .platform-count {
+  color: var(--accent2);
+  background: none;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes shine {
+  0%   { opacity: 0; left: -70%; }
+  18%  { opacity: 1; }
+  100% { opacity: 0; left: 130%; }
+}
+
+/* 空分区兜底 */
+.list-empty {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  padding: 18px 0;
+}
+
+/* 手机端：按钮整行铺满，纵向排——顶栏导航在 <=640px 被隐藏，
+   这排卡片是唯一的分类入口，得够大够好点。 */
+@media (max-width: 640px) {
+  .platform-bar.platform-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .platform-grid .platform-btn { padding: 18px 20px; }
+  .platform-grid .platform-count { font-size: 1.7rem; }
+  .home-hero { padding: 4px 0 32px; }
+}
+
+/* 无障碍：系统开了「减少动态效果」就全部降级为静态 */
+@media (prefers-reduced-motion: reduce) {
+  .platform-grid .platform-btn { animation: none; }
+  .platform-grid .platform-btn::after { display: none; }
+  .platform-grid .platform-btn,
+  .platform-grid .platform-btn:hover,
+  .platform-grid .platform-btn:active {
+    transition: none;
+    transform: none;
+  }
+}
+
