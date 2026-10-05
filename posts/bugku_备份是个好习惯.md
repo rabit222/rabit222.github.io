@@ -1,6 +1,6 @@
 ---
 title: 备份是个好习惯
-date: 2026-10-06
+date: 2026-09-27
 tags: [Bugku, WEB, 源码泄露]
 excerpt: 扫出站点备份文件，审计源码绕过判断拿 flag。
 ---
