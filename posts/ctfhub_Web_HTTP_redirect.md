@@ -1,5 +1,5 @@
 ---
-title: HTTP 临时重定向
+title: 临时重定向
 date: 2026-09-28
 tags: [CTFHub, WEB, HTTP, 重定向]
 excerpt: 抓包查看被浏览器丢弃的 302 响应体，利用 cURL 或拦截获取 Flag。
