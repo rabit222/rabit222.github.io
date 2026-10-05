@@ -147,14 +147,14 @@
   {
     "slug": "bugku_GET.md",
     "raw": "bugku_GET.md",
-    "title": "GET",
+    "title": "get",
     "date": "2026-09-30",
     "tags": [
       "Bugku",
       "WEB",
       "GET"
     ],
-    "excerpt": "GET 方式传参，URL 拼接参数拿 flag。"
+    "excerpt": "GET方式传参，URL拼接参数拿flag。"
   },
   {
     "slug": "bugku_%E5%A4%B4%E7%AD%89%E8%88%B1.md",
