@@ -1,6 +1,6 @@
 ---
 title: source
-date: 2026-10-02
+date: 2026-09-27
 tags: [Bugku, WEB, 源码泄露]
 excerpt: 网站源码泄露，扒下源码审出 flag。
 ---
