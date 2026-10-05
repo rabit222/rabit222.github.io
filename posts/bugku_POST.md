@@ -1,6 +1,6 @@
 ---
-title: POST
-date: 2026-10-01
+title: post
+date: 2026-09-17
 tags: [Bugku, WEB, POST]
 excerpt: POST 方式提交参数，改请求方法传参拿 flag。
 ---
