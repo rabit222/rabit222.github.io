@@ -1,8 +1,8 @@
 ---
-title: GET
+title: get
 date: 2026-09-30
 tags: [Bugku, WEB, GET]
-excerpt: GET 方式传参，URL 拼接参数拿 flag。
+excerpt: GET方式传参，URL拼接参数拿flag。
 ---
 
 思路：这是最基础的传参题，页面明确写着"请用 GET 方式提交一个名为 what、值为 flag 的参数"。属于 Web 的第一课。
