@@ -1,6 +1,6 @@
 ---
 title: mobile2(gctf)
-date: 2026-10-11
+date: 2026-09-26
 tags: [Bugku, Reverse, 安卓逆向]
 excerpt: 反编译 APK，定位判断逻辑拿到 flag。
 ---
