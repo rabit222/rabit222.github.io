@@ -47,7 +47,12 @@ async function loadPosts() {
 // 每张卡片 = 一个平台，keywords 命中 title / slug / tags 任意一项即算这个平台。
 // posts.json 里的 tags 已经带平台名（Bugku / CTFHub），slug 里也有前缀，两条路都写上了。
 // 新增题源只要往这个数组里加一项，主页按钮会自动多一个。
+//
+// 首项「全部」的 keywords 是空数组：keywords.some() 在空数组上恒为 false，
+// 所以 postPlatform() 永远不会返回「全部」，它筛出来的正好是所有没归属平台的文章（如 task1）。
+// 这样「全部」是个真实路由（#/platform/全部），不用为它单开分支。
 const PLATFORMS = [
+  { name: '全部',   keywords: [] },
   { name: 'Bugku',  keywords: ['bugku'] },
   { name: 'CTFHub', keywords: ['ctfhub', 'ctf-hub'] },
 ];
@@ -72,16 +77,48 @@ function backLinkHtml(post) {
   return BACK_HOME;
 }
 
-// 主页的题源按钮，带上各平台已写 wp 的篇数
-function platformBarHtml(active) {
-  let html = '<div class="platform-bar">';
-  html += `<a class="platform-btn${!active ? ' platform-active' : ''}" href="#/">全部 <span class="platform-count">${allPosts.length}</span></a>`;
-  for (const pf of PLATFORMS) {
-    const n = allPosts.filter(p => postPlatform(p) === pf.name).length;
-    html += `<a class="platform-btn${active === pf.name ? ' platform-active' : ''}" href="#/platform/${encodeURIComponent(pf.name)}">${escapeHtml(pf.name)} <span class="platform-count">${n}</span></a>`;
-  }
+// 题源按钮组（主页导航 / 列表页顶部共用）
+// variant='home' 时输出网格卡片版，交给 CSS 的 .platform-grid 排版
+function platformBarHtml(active, variant) {
+  const isHome = variant === 'home';
+  const total = allPosts.length;
+  let html = `<div class="platform-bar${isHome ? ' platform-grid' : ''}">`;
+
+  PLATFORMS.forEach((pf, i) => {
+    // 「全部」= 所有没归属平台的零散文章，数量单算
+    const n = pf.name === '全部'
+      ? allPosts.filter(p => postPlatform(p) === null).length
+      : allPosts.filter(p => postPlatform(p) === pf.name).length;
+
+    // 主页没有「全部」这个激活态（那是列表页的事），所以只在列表页判高亮
+    const on = !!active && active === pf.name;
+
+    const sub = pf.name === '全部' ? `${total} 篇` : '题解';
+    const label = pf.name === '全部' ? '未归类' : pf.name;
+
+    html += `<a class="platform-btn${on ? ' platform-active' : ''}" href="#/platform/${encodeURIComponent(pf.name)}" style="animation-delay:${i * 80}ms">
+      <span class="platform-name">${escapeHtml(label)}</span>
+      <span class="platform-count">${n}</span>
+      <span class="platform-sub">${sub}</span>
+    </a>`;
+  });
+
   html += '</div>';
   return html;
+}
+
+// 主页：只做题源导航，不铺文章列表
+// 手机端（<=640px）顶栏导航整条被 CSS 隐藏，这排卡片是唯一的分类入口，所以做得够大。
+function renderHome() {
+  const app = document.getElementById('app');
+  app.innerHTML = `<div class="home-hero">
+    <div class="hero-kicker">// ${escapeHtml(CONFIG.subtitle || 'WRITEUPS')}</div>
+    <h1 class="hero-title">${escapeHtml(CONFIG.title)}</h1>
+    <p class="hero-desc">${escapeHtml(CONFIG.description || '')}</p>
+    <p class="hero-hint">选择题源，进入对应题解列表</p>
+    ${platformBarHtml(null, 'home')}
+  </div>`;
+  document.title = CONFIG.title;
 }
 
 // 渲染列表页
@@ -99,7 +136,17 @@ async function renderList(page = 1, filter = null, activePlatform = null) {
 
   let html = platformBarHtml(activePlatform);
   const heading = activePlatform ? `// ${activePlatform} 题解 (${posts.length})` : `// 文章 (${posts.length})`;
-  html += `<h1 style="color:var(--accent);font-family:var(--font-mono);margin-bottom:20px">${heading}</h1><ul class="post-list">`;
+  html += `<h1 style="color:var(--accent);font-family:var(--font-mono);margin-bottom:20px">${heading}</h1>`;
+
+  // 空列表兜底：「全部」只收未归类文章，篇数为 0 时给一句人话，别留个光秃秃的标题
+  if (!pagePosts.length) {
+    html += `<p class="list-empty">这个分区还没有文章。<a href="#/">← 回首页选题源</a></p>`;
+    app.innerHTML = html;
+    window.scrollTo(0, 0);
+    return;
+  }
+
+  html += '<ul class="post-list">';
   for (const p of pagePosts) {
     // slug 已经是 URL 编码后的完整文件名（含 .md），直接拼接到链接
     html += `<li class="post-item">
@@ -474,8 +521,8 @@ async function router() {
   app.innerHTML = skeletonHtml(hash.startsWith('post/') ? 'article' : 'list');
 
   if (hash === '/' || hash === 'page/1') {
-    document.title = CONFIG.title;
-    await renderList(1, null, null);
+    // 主页 = 题源导航页，不再铺文章列表
+    renderHome();
   } else if (hash.startsWith('platform/')) {
     // 题源分区：只列该平台的题解；支持 platform/<名称>/<页码> 的分页
     const parts = decodeURIComponent(hash.slice(9)).split('/');
