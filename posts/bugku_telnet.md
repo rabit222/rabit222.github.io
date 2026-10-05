@@ -1,6 +1,6 @@
 ---
 title: telnet
-date: 2026-10-05
+date: 2026-09-27
 tags: [Bugku, MISC, 网络]
 excerpt: 连接靶机 telnet 服务，在目录里找到 flag。
 ---
