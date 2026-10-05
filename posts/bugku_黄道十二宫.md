@@ -1,6 +1,6 @@
 ---
 title: 黄道十二宫
-date: 2026-10-07
+date: 2026-09-27
 tags: [Bugku, Crypto, 替换密码]
 excerpt: 黄道十二宫符号密码，按替换表还原明文。
 ---
