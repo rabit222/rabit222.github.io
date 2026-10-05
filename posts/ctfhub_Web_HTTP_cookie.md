@@ -1,5 +1,5 @@
 ---
-title: "CTFHub 未授权访问"
+title: 未授权访问
 date: 2026-09-27
 tags: [CTFHub, Web, 未授权访问, 权限绕过]
 excerpt: 记录通过探测隐藏路径获取 flag 的过程。
