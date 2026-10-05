@@ -60,18 +60,6 @@
     "excerpt": "黄道十二宫符号密码，按替换表还原明文。"
   },
   {
-    "slug": "bugku_%E5%A4%87%E4%BB%BD%E6%98%AF%E4%B8%AA%E5%A5%BD%E4%B9%A0%E6%83%AF.md",
-    "raw": "bugku_备份是个好习惯.md",
-    "title": "备份是个好习惯",
-    "date": "2026-10-06",
-    "tags": [
-      "Bugku",
-      "WEB",
-      "源码泄露"
-    ],
-    "excerpt": "扫出站点备份文件，审计源码绕过判断拿 flag。"
-  },
-  {
     "slug": "bugku_%E9%9A%90%E5%86%99.md",
     "raw": "bugku_隐写.md",
     "title": "隐写",
@@ -206,6 +194,18 @@
       "网络"
     ],
     "excerpt": "连接靶机 telnet 服务，在目录里找到 flag。"
+  },
+  {
+    "slug": "bugku_%E5%A4%87%E4%BB%BD%E6%98%AF%E4%B8%AA%E5%A5%BD%E4%B9%A0%E6%83%AF.md",
+    "raw": "bugku_备份是个好习惯.md",
+    "title": "备份是个好习惯",
+    "date": "2026-09-27",
+    "tags": [
+      "Bugku",
+      "WEB",
+      "源码泄露"
+    ],
+    "excerpt": "扫出站点备份文件，审计源码绕过判断拿 flag。"
   },
   {
     "slug": "ctfhub_Web_HTTP_cookie.md",
