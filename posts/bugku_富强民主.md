@@ -1,6 +1,6 @@
 ---
 title: 富强民主
-date: 2026-10-08
+date: 2026-09-27
 tags: [Bugku, MISC, 编码]
 excerpt: 核心价值观编码，用工具直接解码。
 ---
