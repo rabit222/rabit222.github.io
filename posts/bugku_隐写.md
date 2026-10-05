@@ -1,6 +1,6 @@
 ---
 title: 隐写
-date: 2026-10-04
+date: 2026-09-27
 tags: [Bugku, MISC, 隐写]
 excerpt: 图片隐写，按顺序排查后提取隐藏数据。
 ---
