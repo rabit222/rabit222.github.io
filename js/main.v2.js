@@ -110,10 +110,14 @@ async function renderList(page = 1, filter = null, activePlatform = null) {
   }
   html += '</ul>';
   if (totalPages > 1) {
+    // 翻页时保持当前平台：Bugku 列表的第 2 页仍然是 Bugku，不会掉回全部文章
+    const pageLink = n => activePlatform
+      ? `#/platform/${encodeURIComponent(activePlatform)}/${n}`
+      : `#/page/${n}`;
     html += '<div style="text-align:center;margin:24px 0">';
-    if (page > 1) html += `<a href="#/page/${page-1}" style="margin-right:16px">← 上一页</a>`;
+    if (page > 1) html += `<a href="${pageLink(page-1)}" style="margin-right:16px">← 上一页</a>`;
     html += `<span style="color:var(--muted);font-family:var(--font-mono)">${page} / ${totalPages}</span>`;
-    if (page < totalPages) html += `<a href="#/page/${page+1}" style="margin-left:16px">下一页 →</a>`;
+    if (page < totalPages) html += `<a href="${pageLink(page+1)}" style="margin-left:16px">下一页 →</a>`;
     html += '</div>';
   }
   app.innerHTML = html;
@@ -134,7 +138,16 @@ async function renderPost(slug) {
     const body = md.replace(/^---[\s\S]*?---/, '').trim();
     const html = DOMPurify.sanitize(marked.parse(body));
 
-    const sorted = [...allPosts].sort((a,b) => new Date(b.date) - new Date(a.date));
+    // 上一篇/下一篇：优先在同平台内翻（Bugku 的下一篇还是 Bugku），
+    // 该平台只有这一篇、或文章没有平台时，才退回全站按日期翻
+    const byDate = (a, b) => new Date(b.date) - new Date(a.date);
+    const pf = postPlatform(post);
+    let pool = [...allPosts];
+    if (pf) {
+      const same = allPosts.filter(p => postPlatform(p) === pf);
+      if (same.length > 1) pool = same;
+    }
+    const sorted = pool.sort(byDate);
     const idx = sorted.findIndex(p => p.slug === slug);
     const prev = idx > 0 ? sorted[idx - 1] : null;
     const next = idx < sorted.length - 1 ? sorted[idx + 1] : null;
@@ -464,12 +477,13 @@ async function router() {
     document.title = CONFIG.title;
     await renderList(1, null, null);
   } else if (hash.startsWith('platform/')) {
-    // 题源分区：主页按钮点进来，只列该平台的题解
-    const name = decodeURIComponent(hash.slice(9));
+    // 题源分区：只列该平台的题解；支持 platform/<名称>/<页码> 的分页
+    const parts = decodeURIComponent(hash.slice(9)).split('/');
+    const name = parts[0];
+    const pg = parseInt(parts[1]) || 1;
     document.title = `${name} · ${CONFIG.title}`;
-    // 分页走 page/ 会丢平台条件，所以按平台分页时直接用这个平台的过滤条件
     const onPlatform = p => postPlatform(p) === name;
-    await renderList(1, onPlatform, name);
+    await renderList(pg, onPlatform, name);
   } else if (hash.startsWith('page/')) {
     await renderList(parseInt(hash.split('/')[1]) || 1);
   } else if (hash.startsWith('post/')) {
