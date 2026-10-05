@@ -11,10 +11,16 @@ let allPosts = [];
 const BACK_HOME = '<a class="back-home" href="#/">← 返回首页</a>';
 
 // marked 配置
+// hljs 防护：就算 highlight.js 没加载成功（CDN 挂了），文章也照常渲染，只是代码块不高亮
+const escapeCode = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 marked.setOptions({ breaks: true, gfm: true });
 marked.use({ renderer: { code: (code, lang) => {
-  const valid = lang && hljs.getLanguage(lang);
-  const highlighted = valid ? hljs.highlight(code, { language: lang }).value : code;
+  let highlighted = escapeCode(code);
+  try {
+    if (typeof hljs !== 'undefined' && lang && hljs.getLanguage(lang)) {
+      highlighted = hljs.highlight(code, { language: lang }).value;
+    }
+  } catch (e) { /* 高亮失败就原样输出，不影响阅读 */ }
   return `<pre><code class="hljs">${highlighted}</code></pre>`;
 }}});
 
