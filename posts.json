@@ -121,18 +121,6 @@
     "excerpt": "识别被改坏的编码串，替换非法字符后解码。"
   },
   {
-    "slug": "bugku_source.md",
-    "raw": "bugku_source.md",
-    "title": "source",
-    "date": "2026-10-02",
-    "tags": [
-      "Bugku",
-      "WEB",
-      "源码泄露"
-    ],
-    "excerpt": "网站源码泄露，扒下源码审出 flag。"
-  },
-  {
     "slug": "bugku_GET.md",
     "raw": "bugku_GET.md",
     "title": "get",
@@ -206,6 +194,18 @@
       "请求头"
     ],
     "excerpt": "按提示改 User-Agent，页面弹窗给出 flag。"
+  },
+  {
+    "slug": "bugku_source.md",
+    "raw": "bugku_source.md",
+    "title": "source",
+    "date": "2026-09-27",
+    "tags": [
+      "Bugku",
+      "WEB",
+      "源码泄露"
+    ],
+    "excerpt": "网站源码泄露，扒下源码审出 flag。"
   },
   {
     "slug": "ctfhub_Web_HTTP_cookie.md",
