@@ -1,6 +1,6 @@
 ---
 title: 散乱的密文
-date: 2026-10-09
+date: 2026-09-27
 tags: [Bugku, Crypto, 栅栏密码]
 excerpt: 字符顺序被打乱，分组重排还原明文。
 ---
