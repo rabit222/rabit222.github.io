@@ -1,17 +1,5 @@
 [
   {
-    "slug": "bugku_mobile2%28gctf%29.md",
-    "raw": "bugku_mobile2(gctf).md",
-    "title": "mobile2(gctf)",
-    "date": "2026-10-11",
-    "tags": [
-      "Bugku",
-      "Reverse",
-      "安卓逆向"
-    ],
-    "excerpt": "反编译 APK，定位判断逻辑拿到 flag。"
-  },
-  {
     "slug": "ctfhub_Web_Informationleak_directorytraversal.md",
     "raw": "ctfhub_Web_Informationleak_directorytraversal.md",
     "title": "目录遍历",
@@ -232,6 +220,18 @@
       "请求方法"
     ],
     "excerpt": "记录通过修改 HTTP 请求方法获取 flag 的过程。"
+  },
+  {
+    "slug": "bugku_mobile2%28gctf%29.md",
+    "raw": "bugku_mobile2(gctf).md",
+    "title": "mobile2(gctf)",
+    "date": "2026-09-26",
+    "tags": [
+      "Bugku",
+      "Reverse",
+      "安卓逆向"
+    ],
+    "excerpt": "反编译 APK，定位判断逻辑拿到 flag。"
   },
   {
     "slug": "bugku_%E8%AE%A1%E7%AE%97%E5%99%A8.md",
