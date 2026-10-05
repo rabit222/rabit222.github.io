@@ -9,6 +9,12 @@ from urllib.parse import quote
 POSTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "posts")
 OUTPUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "posts.json")
 
+def unquote(val):
+    """剥掉 frontmatter 值两端成对的引号，标题不再显示 "..." """
+    if len(val) >= 2 and val[0] == val[-1] and val[0] in ('"', "'"):
+        return val[1:-1].strip()
+    return val
+
 def parse_frontmatter(content):
     fm = {}
     match = re.match(r'^---\s*\n(.*?)\n---', content, re.DOTALL)
@@ -19,7 +25,9 @@ def parse_frontmatter(content):
             key, val = line.split(':', 1)
             val = val.strip()
             if val.startswith('['):
-                val = [x.strip() for x in val.strip('[]').split(',') if x.strip()]
+                val = [unquote(x.strip()) for x in val.strip('[]').split(',') if x.strip()]
+            else:
+                val = unquote(val)
             fm[key.strip()] = val
     return fm, content[match.end():]
 
