@@ -72,18 +72,6 @@
     "excerpt": "扫出站点备份文件，审计源码绕过判断拿 flag。"
   },
   {
-    "slug": "bugku_telnet.md",
-    "raw": "bugku_telnet.md",
-    "title": "telnet",
-    "date": "2026-10-05",
-    "tags": [
-      "Bugku",
-      "MISC",
-      "网络"
-    ],
-    "excerpt": "连接靶机 telnet 服务，在目录里找到 flag。"
-  },
-  {
     "slug": "bugku_%E9%9A%90%E5%86%99.md",
     "raw": "bugku_隐写.md",
     "title": "隐写",
@@ -206,6 +194,18 @@
       "源码泄露"
     ],
     "excerpt": "网站源码泄露，扒下源码审出 flag。"
+  },
+  {
+    "slug": "bugku_telnet.md",
+    "raw": "bugku_telnet.md",
+    "title": "telnet",
+    "date": "2026-09-27",
+    "tags": [
+      "Bugku",
+      "MISC",
+      "网络"
+    ],
+    "excerpt": "连接靶机 telnet 服务，在目录里找到 flag。"
   },
   {
     "slug": "ctfhub_Web_HTTP_cookie.md",
