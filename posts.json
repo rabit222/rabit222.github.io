@@ -211,7 +211,7 @@
   {
     "slug": "ctfhub_Web_HTTP_request.md",
     "raw": "ctfhub_Web_HTTP_request.md",
-    "title": "\"CTFHub HTTP Method\"",
+    "title": "CTFHub HTTP Method",
     "date": "2026-09-27",
     "tags": [
       "CTFHub",
@@ -392,7 +392,7 @@
   {
     "slug": "bugku_ok%20%20%20%26%20%20bug_%5B%2B-%3C%3E%5D.md",
     "raw": "bugku_ok   &  bug_[+-<>].md",
-    "title": "\"Ook & Brainfuck\"",
+    "title": "Ook & Brainfuck",
     "date": "2026-09-11",
     "tags": [
       "Bugku",
@@ -405,7 +405,7 @@
   {
     "slug": "bugku_%E2%80%9C%5C.-%E2%80%9D.md",
     "raw": "bugku_“\\.-”.md",
-    "title": "\"-.-\"",
+    "title": "-.-",
     "date": "2026-09-11",
     "tags": [
       "Bugku",
@@ -417,7 +417,7 @@
   {
     "slug": "bugku_%E4%B8%80%E6%AE%B5%E6%96%B0%E9%97%BB.md",
     "raw": "bugku_一段新闻.md",
-    "title": "\"一段新闻\"",
+    "title": "一段新闻",
     "date": "2026-09-11",
     "tags": [
       "Bugku",
