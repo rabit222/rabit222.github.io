@@ -1,6 +1,6 @@
 ---
 title: 来自宇宙的信号
-date: 2026-10-10
+date: 2026-09-27
 tags: [Bugku, Crypto, 特殊编码]
 excerpt: 外星文字符号，认出符号体系后查表还原。
 ---
