@@ -36,18 +36,6 @@
     "excerpt": "字符顺序被打乱，分组重排还原明文。"
   },
   {
-    "slug": "bugku_%E5%AF%8C%E5%BC%BA%E6%B0%91%E4%B8%BB.md",
-    "raw": "bugku_富强民主.md",
-    "title": "富强民主",
-    "date": "2026-10-08",
-    "tags": [
-      "Bugku",
-      "MISC",
-      "编码"
-    ],
-    "excerpt": "核心价值观编码，用工具直接解码。"
-  },
-  {
     "slug": "bugku_%E9%BB%84%E9%81%93%E5%8D%81%E4%BA%8C%E5%AE%AB.md",
     "raw": "bugku_黄道十二宫.md",
     "title": "黄道十二宫",
@@ -206,6 +194,18 @@
       "源码泄露"
     ],
     "excerpt": "扫出站点备份文件，审计源码绕过判断拿 flag。"
+  },
+  {
+    "slug": "bugku_%E5%AF%8C%E5%BC%BA%E6%B0%91%E4%B8%BB.md",
+    "raw": "bugku_富强民主.md",
+    "title": "富强民主",
+    "date": "2026-09-27",
+    "tags": [
+      "Bugku",
+      "MISC",
+      "编码"
+    ],
+    "excerpt": "核心价值观编码，用工具直接解码。"
   },
   {
     "slug": "ctfhub_Web_HTTP_cookie.md",
