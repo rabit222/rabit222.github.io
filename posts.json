@@ -73,18 +73,6 @@
     "excerpt": "记录通过探测并遍历 Web 服务器上的隐藏目录获取 flag 的过程。"
   },
   {
-    "slug": "bugku_%E6%8A%84%E9%94%99%E7%9A%84%E5%AD%97%E7%AC%A6.md",
-    "raw": "bugku_抄错的字符.md",
-    "title": "抄错的字符",
-    "date": "2026-10-03",
-    "tags": [
-      "Bugku",
-      "Crypto",
-      "编码"
-    ],
-    "excerpt": "识别被改坏的编码串，替换非法字符后解码。"
-  },
-  {
     "slug": "bugku_GET.md",
     "raw": "bugku_GET.md",
     "title": "get",
@@ -206,6 +194,18 @@
       "编码"
     ],
     "excerpt": "核心价值观编码，用工具直接解码。"
+  },
+  {
+    "slug": "bugku_%E6%8A%84%E9%94%99%E7%9A%84%E5%AD%97%E7%AC%A6.md",
+    "raw": "bugku_抄错的字符.md",
+    "title": "抄错的字符",
+    "date": "2026-09-27",
+    "tags": [
+      "Bugku",
+      "Crypto",
+      "编码"
+    ],
+    "excerpt": "识别被改坏的编码串，替换非法字符后解码。"
   },
   {
     "slug": "ctfhub_Web_HTTP_cookie.md",
