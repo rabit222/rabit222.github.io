@@ -24,18 +24,6 @@
     "excerpt": "外星文字符号，认出符号体系后查表还原。"
   },
   {
-    "slug": "bugku_%E6%95%A3%E4%B9%B1%E7%9A%84%E5%AF%86%E6%96%87.md",
-    "raw": "bugku_散乱的密文.md",
-    "title": "散乱的密文",
-    "date": "2026-10-09",
-    "tags": [
-      "Bugku",
-      "Crypto",
-      "栅栏密码"
-    ],
-    "excerpt": "字符顺序被打乱，分组重排还原明文。"
-  },
-  {
     "slug": "bugku_%E9%BB%84%E9%81%93%E5%8D%81%E4%BA%8C%E5%AE%AB.md",
     "raw": "bugku_黄道十二宫.md",
     "title": "黄道十二宫",
@@ -206,6 +194,18 @@
       "编码"
     ],
     "excerpt": "识别被改坏的编码串，替换非法字符后解码。"
+  },
+  {
+    "slug": "bugku_%E6%95%A3%E4%B9%B1%E7%9A%84%E5%AF%86%E6%96%87.md",
+    "raw": "bugku_散乱的密文.md",
+    "title": "散乱的密文",
+    "date": "2026-09-27",
+    "tags": [
+      "Bugku",
+      "Crypto",
+      "栅栏密码"
+    ],
+    "excerpt": "字符顺序被打乱，分组重排还原明文。"
   },
   {
     "slug": "ctfhub_Web_HTTP_cookie.md",
