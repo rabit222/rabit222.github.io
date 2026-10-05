@@ -133,18 +133,6 @@
     "excerpt": "网站源码泄露，扒下源码审出 flag。"
   },
   {
-    "slug": "bugku_POST.md",
-    "raw": "bugku_POST.md",
-    "title": "POST",
-    "date": "2026-10-01",
-    "tags": [
-      "Bugku",
-      "WEB",
-      "POST"
-    ],
-    "excerpt": "POST 方式提交参数，改请求方法传参拿 flag。"
-  },
-  {
     "slug": "bugku_GET.md",
     "raw": "bugku_GET.md",
     "title": "get",
@@ -316,6 +304,18 @@
       "过滤"
     ],
     "excerpt": "window系统的linux指令使用"
+  },
+  {
+    "slug": "bugku_POST.md",
+    "raw": "bugku_POST.md",
+    "title": "post",
+    "date": "2026-09-17",
+    "tags": [
+      "Bugku",
+      "WEB",
+      "POST"
+    ],
+    "excerpt": "POST 方式提交参数，改请求方法传参拿 flag。"
   },
   {
     "slug": "bugku_easy-hash.md",
