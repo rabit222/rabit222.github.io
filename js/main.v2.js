@@ -62,6 +62,16 @@ function postPlatform(p) {
   return null;
 }
 
+// 文章页的「返回」按钮：按文章所属平台走
+// Bugku 的文章返回 Bugku 列表，CTFHub 的返回 CTFHub，识别不出平台的才回首页
+function backLinkHtml(post) {
+  const pf = postPlatform(post || {});
+  if (pf) {
+    return `<a class="back-home" href="#/platform/${encodeURIComponent(pf)}">← 返回 ${escapeHtml(pf)}</a>`;
+  }
+  return BACK_HOME;
+}
+
 // 主页的题源按钮，带上各平台已写 wp 的篇数
 function platformBarHtml(active) {
   let html = '<div class="platform-bar">';
@@ -133,7 +143,7 @@ async function renderPost(slug) {
     const editUrl = `https://github.com/${CONFIG.githubUser}/${CONFIG.repo}/edit/${CONFIG.branch}/${CONFIG.postsDir}/${post.raw}`;
 
     app.innerHTML = `<article class="article">
-      ${BACK_HOME}
+      ${backLinkHtml(post)}
       <div class="article-header">
         <h1 class="article-title">${escapeHtml(post.title)}</h1>
         <div class="article-meta">${post.date} · ${(post.tags||[]).map(t=>`<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
