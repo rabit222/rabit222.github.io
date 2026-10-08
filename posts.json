@@ -1,5 +1,18 @@
 [
   {
+    "slug": "ctfhub_Web_PHPINFO.md",
+    "raw": "ctfhub_Web_PHPINFO.md",
+    "title": "PHPINFO",
+    "date": "2026-10-08",
+    "tags": [
+      "CTFHub",
+      "Web",
+      "信息泄露",
+      "phpinfo"
+    ],
+    "excerpt": "记录通过 phpinfo 页面敏感信息泄露获取 flag 的过程。"
+  },
+  {
     "slug": "ctfhub_Web_Informationleak_directorytraversal.md",
     "raw": "ctfhub_Web_Informationleak_directorytraversal.md",
     "title": "目录遍历",
