@@ -1,5 +1,18 @@
 [
   {
+    "slug": "ctfhub_Web_Vim.md",
+    "raw": "ctfhub_Web_Vim.md",
+    "title": "Vim缓存",
+    "date": "2026-11-11",
+    "tags": [
+      "CTFHub",
+      "Web",
+      "Vim缓存",
+      "源码泄露"
+    ],
+    "excerpt": "记录通过探测Vim异常退出产生的交换文件（.swp）导致网站源码泄露的过程。"
+  },
+  {
     "slug": "ctfhub_Web_PHPINFO.md",
     "raw": "ctfhub_Web_PHPINFO.md",
     "title": "PHPINFO",
