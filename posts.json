@@ -13,6 +13,20 @@
     "excerpt": "记录通过 .git 目录泄露获取源码，并翻查提交历史找到被删除 flag 的过程。"
   },
   {
+    "slug": "ctfhub_Web_gitleak_stash.md",
+    "raw": "ctfhub_Web_gitleak_stash.md",
+    "title": "Git leak- Stash",
+    "date": "2026-11-12",
+    "tags": [
+      "CTFHub",
+      "Web",
+      "源码泄露",
+      "Git泄露",
+      "Git Stash"
+    ],
+    "excerpt": "记录通过 GitHack 下载泄露的 .git 目录，利用 git stash 查看被隐藏的暂存代码，从而提取 flag 的过程。"
+  },
+  {
     "slug": "ctfhub_Web_DS.md",
     "raw": "ctfhub_Web_DS.md",
     "title": ".DS_Store",
