@@ -1,5 +1,18 @@
 [
   {
+    "slug": "ctfhub_Web_gitleak.md",
+    "raw": "ctfhub_Web_gitleak.md",
+    "title": ".git 泄露",
+    "date": "2026-11-12",
+    "tags": [
+      "CTFHub",
+      "Web",
+      "信息泄露",
+      "git"
+    ],
+    "excerpt": "记录通过 .git 目录泄露获取源码，并翻查提交历史找到被删除 flag 的过程。"
+  },
+  {
     "slug": "ctfhub_Web_Vim.md",
     "raw": "ctfhub_Web_Vim.md",
     "title": "Vim缓存",
