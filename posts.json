@@ -1,5 +1,19 @@
 [
   {
+    "slug": "ctfhub_Web_gitleak_index.md",
+    "raw": "ctfhub_Web_gitleak_index.md",
+    "title": "Git 泄露 - Index",
+    "date": "2026-11-12",
+    "tags": [
+      "CTFHub",
+      "Web",
+      "源码泄露",
+      "Git泄露",
+      "Git Index"
+    ],
+    "excerpt": "记录通过 GitHack 下载泄露的 .git 目录，利用 .git/index 文件恢复暂存区未提交的源码，从而提取 flag 的过程。"
+  },
+  {
     "slug": "ctfhub_Web_gitleak_log.md",
     "raw": "ctfhub_Web_gitleak_log.md",
     "title": ".git 泄露",
