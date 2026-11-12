@@ -1,6 +1,6 @@
 ---
 title: bak文件
-date: 2024-11-11
+date: 2026-11-11
 tags: [CTFHub, Web, 源码泄露, 备份文件]
 excerpt: 记录通过探测网站常见的备份文件后缀（.bak）获取源码，从中提取 flag 的过程。
 ---
