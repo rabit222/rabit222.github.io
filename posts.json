@@ -13,6 +13,19 @@
     "excerpt": "记录通过 .git 目录泄露获取源码，并翻查提交历史找到被删除 flag 的过程。"
   },
   {
+    "slug": "ctfhub_Web_DS.md",
+    "raw": "ctfhub_Web_DS.md",
+    "title": ".DS_Store",
+    "date": "2026-11-11",
+    "tags": [
+      "CTFHub",
+      "Web",
+      "信息泄露",
+      ".DS_Store"
+    ],
+    "excerpt": "记录通过解析 Mac OS 产生的 .DS_Store 隐藏文件，获取网站隐藏文件列表从而拿到 flag 的过程。"
+  },
+  {
     "slug": "ctfhub_Web_Vim.md",
     "raw": "ctfhub_Web_Vim.md",
     "title": "Vim缓存",
