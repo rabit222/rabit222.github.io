@@ -1,5 +1,18 @@
 [
   {
+    "slug": "ctfhub_Web_hgleak.md",
+    "raw": "ctfhub_Web_hgleak.md",
+    "title": "HG源码泄露",
+    "date": "2026-11-13",
+    "tags": [
+      "CTFHub",
+      "Web",
+      "源码泄露",
+      "Mercurial"
+    ],
+    "excerpt": "记录通过探测网站隐藏的.hg目录，利用工具下载元数据，并通过分析fncache文件直接获取flag的过程。"
+  },
+  {
     "slug": "ctfhub_Web_gitleak_index.md",
     "raw": "ctfhub_Web_gitleak_index.md",
     "title": "Git 泄露 - Index",
