@@ -1,0 +1,22 @@
+---
+title: SVN源码泄露
+date: 2026-11-13
+tags: [CTFHub, Web, 源码泄露, SVN]
+excerpt: 记录通过探测网站隐藏的.svn目录，利用工具还原源码及历史版本，最终获取flag的过程。
+---
+
+思路：题目提示“开发人员直接部署了 SVN 工作目录”，说明线上环境残留了 `.svn` 隐藏文件夹。解题核心是**探测并还原 SVN 目录下的源码及历史版本文件**。
+
+问题：
+1. 直接访问目标主页，无法直接获取 Flag 源码。
+2. 手工下载 `.svn` 碎片文件效率极低且容易遗漏。
+3. 使用自动化工具 `dvcs-ripper` 时，终端报错提示缺少 `DBD::SQLite` 模块。
+
+解决：
+1. 确定目标 URL 为：`http://challenge-34c4b59f001ac1bc.sandbox.ctfhub.com:10800`。
+2. 准备工具环境：克隆 `dvcs-ripper` 仓库，并安装缺失的 Perl 依赖（`sudo apt-get install libdbd-sqlite3-perl`）。
+3. 执行源码恢复命令：`perl rip-svn.pl -v -u http://challenge-34c4b59f001ac1bc.sandbox.ctfhub.com:10800/.svn/`。
+4. 工具运行成功，但只恢复了 `index.html`，该文件中并没有 Flag。说明 Flag 隐藏在历史版本中。
+5. 在本地生成的 `.svn` 目录中，使用全局搜索命令寻找 Flag：`grep -r "ctfhub{" ./.svn`。
+6. 搜索结果直接定位到 `.svn/pristine/c8/c867cff5e89d61aaf8ad27ee597345591777d99d.svn-base` 文件，成功在文件中找到 `ctfhub{37785c7efcd5f9bf2072a9a7}`。
+7. 回到题目页面，输入该 Flag 并提交，通关。
