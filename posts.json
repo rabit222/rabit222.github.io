@@ -1,5 +1,19 @@
 [
   {
+    "slug": "ctfhub_Web_BP_weakpassword.md",
+    "raw": "ctfhub_Web_BP_weakpassword.md",
+    "title": "CTFHub Web - 弱口令",
+    "date": "2026-11-16",
+    "tags": [
+      "CTFHub",
+      "Web",
+      "暴力破解",
+      "Burp Suite",
+      "Intruder"
+    ],
+    "excerpt": "记录使用 Burp Suite Intruder 的集束炸弹（Cluster bomb）模式，通过自定义字典对目标登录框进行穷举，利用响应包长度差异定位正确凭证，最终获取 flag 的过程。"
+  },
+  {
     "slug": "ctfhub_Web_hgleak.md",
     "raw": "ctfhub_Web_hgleak.md",
     "title": "HG源码泄露",
