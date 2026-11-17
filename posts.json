@@ -14,6 +14,20 @@
     "excerpt": "记录使用 Burp Suite Intruder 的集束炸弹（Cluster bomb）模式，通过自定义字典对目标登录框进行穷举，利用响应包长度差异定位正确凭证，最终获取 flag 的过程。"
   },
   {
+    "slug": "ctfhub_Web_IntegerInjection.md",
+    "raw": "ctfhub_Web_IntegerInjection.md",
+    "title": "CTFHub Web - SQL 整数型注入",
+    "date": "2026-11-16",
+    "tags": [
+      "CTFHub",
+      "Web",
+      "SQL注入",
+      "联合查询",
+      "UNION SELECT"
+    ],
+    "excerpt": "利用联合注入（UNION SELECT）分析页面回显与库表结构，从整数型参数中查出目标 flag 的完整过程。"
+  },
+  {
     "slug": "ctfhub_Web_hgleak.md",
     "raw": "ctfhub_Web_hgleak.md",
     "title": "HG源码泄露",
