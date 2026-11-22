@@ -29,6 +29,20 @@
     "excerpt": "记录通过信息搜集获取亿邮(eYou)邮件网关的默认凭证，利用默认口令登录目标系统，从而获取 flag 的过程。本题考察的是对网络设备默认配置的敏感度和信息搜集能力。"
   },
   {
+    "slug": "ctfhub_Web_sql%28f-error%29.md",
+    "raw": "ctfhub_Web_sql(f-error).md",
+    "title": "CTFHub Web - SQL 报错注入",
+    "date": "2026-11-16",
+    "tags": [
+      "CTFHub",
+      "Web",
+      "SQL注入",
+      "报错注入",
+      "updatexml"
+    ],
+    "excerpt": "当页面没有正常回显位时，利用 MySQL 的 updatexml() 函数人为制造报错，将查询结果拼接在错误信息中带出。"
+  },
+  {
     "slug": "ctfhub_Web_sql%28int%29.md",
     "raw": "ctfhub_Web_sql(int).md",
     "title": "CTFHub Web - SQL 整数型注入",
