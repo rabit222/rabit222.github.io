@@ -1,5 +1,131 @@
 [
   {
+    "slug": "ctfhub_Web_SQL_boolean_blind.md",
+    "raw": "ctfhub_Web_SQL_boolean_blind.md",
+    "title": "SQL注入-布尔盲注",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "SQL注入",
+      "盲注"
+    ],
+    "excerpt": "页面只回显\"查询成功/失败\"，用真/假问题二分逐字符猜出库里的内容。"
+  },
+  {
+    "slug": "ctfhub_Web_SQL_cookie.md",
+    "raw": "ctfhub_Web_SQL_cookie.md",
+    "title": "SQL注入-Cookie注入",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "SQL注入",
+      "Cookie注入"
+    ],
+    "excerpt": "注入点不在 URL 参数上，而在 Cookie 里，页面拿 cookie 值去查库。"
+  },
+  {
+    "slug": "ctfhub_Web_SQL_filter_bypass.md",
+    "raw": "ctfhub_Web_SQL_filter_bypass.md",
+    "title": "SQL注入-过滤绕过",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "SQL注入",
+      "绕过"
+    ],
+    "excerpt": "关键字被黑名单拦掉之后，用注释、大小写、内联注释、等价函数把 SQL 重新拼出来。"
+  },
+  {
+    "slug": "ctfhub_Web_SQL_stacked.md",
+    "raw": "ctfhub_Web_SQL_stacked.md",
+    "title": "SQL注入-堆叠注入",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "SQL注入",
+      "堆叠注入"
+    ],
+    "excerpt": "分号后面再写一条语句，用它来 INSERT/UPDATE，甚至写文件。"
+  },
+  {
+    "slug": "ctfhub_Web_SQL_time_blind.md",
+    "raw": "ctfhub_Web_SQL_time_blind.md",
+    "title": "SQL注入-时间盲注",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "SQL注入",
+      "盲注"
+    ],
+    "excerpt": "页面连\"有数据/没数据\"都不给了，只能靠 sleep() 的响应时间差判断真假。"
+  },
+  {
+    "slug": "ctfhub_Web_SQL_wide_byte.md",
+    "raw": "ctfhub_Web_SQL_wide_byte.md",
+    "title": "SQL注入-宽字节注入",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "SQL注入",
+      "编码"
+    ],
+    "excerpt": "GBK 编码下用 %df 吃掉转义反斜杠，让 addslashes 的防护失效。"
+  },
+  {
+    "slug": "ctfhub_Web_XSS_dom.md",
+    "raw": "ctfhub_Web_XSS_dom.md",
+    "title": "XSS-DOM型",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "XSS"
+    ],
+    "excerpt": "漏洞在前端 JS 里，数据根本没到服务器，服务端日志里看不到 payload。"
+  },
+  {
+    "slug": "ctfhub_Web_XSS_filter_bypass.md",
+    "raw": "ctfhub_Web_XSS_filter_bypass.md",
+    "title": "XSS-过滤绕过",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "XSS"
+    ],
+    "excerpt": "关键字被过滤之后换标签、换事件、混大小写、编码，把 payload 重新拼出来。"
+  },
+  {
+    "slug": "ctfhub_Web_XSS_reflected.md",
+    "raw": "ctfhub_Web_XSS_reflected.md",
+    "title": "XSS-反射型",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "XSS"
+    ],
+    "excerpt": "参数被直接拼进 HTML 回显，构造 script 让它在受害者浏览器里执行。"
+  },
+  {
+    "slug": "ctfhub_Web_XSS_stored.md",
+    "raw": "ctfhub_Web_XSS_stored.md",
+    "title": "XSS-存储型",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "XSS"
+    ],
+    "excerpt": "payload 存进数据库，任何人打开页面都会中招，比反射型更危险。"
+  },
+  {
     "slug": "ctfhub_Web_BP_weakpassword.md",
     "raw": "ctfhub_Web_BP_weakpassword.md",
     "title": "CTFHub Web - 弱口令",
