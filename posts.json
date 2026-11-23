@@ -25,6 +25,54 @@
     "excerpt": "先看防护在哪一层：前端 JS、服务端校验还是 token，三种绕过方式完全不同。"
   },
   {
+    "slug": "pikachu_burteforce_client.md",
+    "raw": "pikachu_burteforce_client.md",
+    "title": "Pikachu-客户端验证绕过",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "暴力破解"
+    ],
+    "excerpt": "前端 JS 只管弹窗提示，请求照样发出去，抓包直接看响应。"
+  },
+  {
+    "slug": "pikachu_burteforce_form.md",
+    "raw": "pikachu_burteforce_form.md",
+    "title": "Pikachu-基于表单的暴力破解",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "暴力破解"
+    ],
+    "excerpt": "登录表单没有任何防护，Burp Intruder 跑字典直接撞出密码。"
+  },
+  {
+    "slug": "pikachu_burteforce_server.md",
+    "raw": "pikachu_burteforce_server.md",
+    "title": "Pikachu-服务端验证绕过",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "暴力破解"
+    ],
+    "excerpt": "服务端只做了简单限速，放慢节奏或换源就能继续撞。"
+  },
+  {
+    "slug": "pikachu_burteforce_token.md",
+    "raw": "pikachu_burteforce_token.md",
+    "title": "Pikachu-Token防爆破绕过",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "暴力破解"
+    ],
+    "excerpt": "每次请求带一次性 token，脚本先取 token 再提交就能继续撞。"
+  },
+  {
     "slug": "pikachu_csrf.md",
     "raw": "pikachu_csrf.md",
     "title": "Pikachu-CSRF",
@@ -72,6 +120,54 @@
       "SQL注入"
     ],
     "excerpt": "数字型、字符型、搜索型、xx 型，四种闭合方式对应四种 payload 构造。"
+  },
+  {
+    "slug": "pikachu_sqli_id.md",
+    "raw": "pikachu_sqli_id.md",
+    "title": "Pikachu-SQL注入(数字型)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "SQL注入"
+    ],
+    "excerpt": "id 是数字，直接用 and 判断，union 取数据。"
+  },
+  {
+    "slug": "pikachu_sqli_search.md",
+    "raw": "pikachu_sqli_search.md",
+    "title": "Pikachu-SQL注入(搜索型)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "SQL注入"
+    ],
+    "excerpt": "输入落在 LIKE '%xxx%' 里，要用 % 和引号一起闭合。"
+  },
+  {
+    "slug": "pikachu_sqli_str.md",
+    "raw": "pikachu_sqli_str.md",
+    "title": "Pikachu-SQL注入(字符型)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "SQL注入"
+    ],
+    "excerpt": "输入被单引号包裹，先闭合再用 and 判断，最后 union 读库。"
+  },
+  {
+    "slug": "pikachu_sqli_x.md",
+    "raw": "pikachu_sqli_x.md",
+    "title": "Pikachu-SQL注入(xx型)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "SQL注入"
+    ],
+    "excerpt": "输入落在 ('xxx') 这种括号加引号的结构里，闭合要连括号一起处理。"
   },
   {
     "slug": "pikachu_ssrf.md",
