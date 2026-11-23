@@ -55,6 +55,7 @@ const PLATFORMS = [
   { name: '全部',   keywords: [] },
   { name: 'Bugku',  keywords: ['bugku'] },
   { name: 'CTFHub', keywords: ['ctfhub', 'ctf-hub'] },
+  { name: 'Pikachu', keywords: ['pikachu'] },
 ];
 
 // 一篇文章归属的平台；没识别出来返回 null（比如 task1 那种代码作业）
