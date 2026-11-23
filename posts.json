@@ -122,6 +122,44 @@
     "excerpt": "数字型、字符型、搜索型、xx 型，四种闭合方式对应四种 payload 构造。"
   },
   {
+    "slug": "pikachu_sqli_blind_bool.md",
+    "raw": "pikachu_sqli_blind_bool.md",
+    "title": "Pikachu-SQL注入(布尔盲注)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "SQL注入",
+      "盲注"
+    ],
+    "excerpt": "页面只说存在/不存在，用 and 条件二分推出数据。"
+  },
+  {
+    "slug": "pikachu_sqli_blind_time.md",
+    "raw": "pikachu_sqli_blind_time.md",
+    "title": "Pikachu-SQL注入(时间盲注)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "SQL注入",
+      "盲注"
+    ],
+    "excerpt": "页面完全没差异，用 sleep() 的耗时差判断真假。"
+  },
+  {
+    "slug": "pikachu_sqli_header.md",
+    "raw": "pikachu_sqli_header.md",
+    "title": "Pikachu-SQL注入(请求头注入)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "SQL注入"
+    ],
+    "excerpt": "注入点藏在 X-Forwarded-For 和 User-Agent 里，页面会回显。"
+  },
+  {
     "slug": "pikachu_sqli_id.md",
     "raw": "pikachu_sqli_id.md",
     "title": "Pikachu-SQL注入(数字型)",
@@ -132,6 +170,18 @@
       "SQL注入"
     ],
     "excerpt": "id 是数字，直接用 and 判断，union 取数据。"
+  },
+  {
+    "slug": "pikachu_sqli_iu.md",
+    "raw": "pikachu_sqli_iu.md",
+    "title": "Pikachu-SQL注入(insert/update)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "SQL注入"
+    ],
+    "excerpt": "注入点在注册和修改资料，写数据的地方同样能注入。"
   },
   {
     "slug": "pikachu_sqli_search.md",
@@ -156,6 +206,19 @@
       "SQL注入"
     ],
     "excerpt": "输入被单引号包裹，先闭合再用 and 判断，最后 union 读库。"
+  },
+  {
+    "slug": "pikachu_sqli_widebyte.md",
+    "raw": "pikachu_sqli_widebyte.md",
+    "title": "Pikachu-SQL注入(宽字节)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "SQL注入",
+      "编码"
+    ],
+    "excerpt": "GBK 连接下用 %df 吃掉转义反斜杠，让单引号逃出来。"
   },
   {
     "slug": "pikachu_sqli_x.md",
@@ -228,6 +291,54 @@
       "XSS"
     ],
     "excerpt": "payload 提交给自己看不到，得让管理员访问，用 pkxss 后台收 cookie。"
+  },
+  {
+    "slug": "pikachu_xss_dom.md",
+    "raw": "pikachu_xss_dom.md",
+    "title": "Pikachu-XSS(DOM型)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "XSS"
+    ],
+    "excerpt": "漏洞在前端 JS，数据不进服务端，服务端日志里看不到。"
+  },
+  {
+    "slug": "pikachu_xss_post.md",
+    "raw": "pikachu_xss_post.md",
+    "title": "Pikachu-XSS(POST型反射)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "XSS"
+    ],
+    "excerpt": "参数在请求体里，地址栏改了没用，得用表单或 Burp 重放。"
+  },
+  {
+    "slug": "pikachu_xss_reflected.md",
+    "raw": "pikachu_xss_reflected.md",
+    "title": "Pikachu-XSS(反射型)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "XSS"
+    ],
+    "excerpt": "GET 和 POST 两个入口，输入直接回显到页面。"
+  },
+  {
+    "slug": "pikachu_xss_stored.md",
+    "raw": "pikachu_xss_stored.md",
+    "title": "Pikachu-XSS(存储型)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "XSS"
+    ],
+    "excerpt": "留言板把 payload 存进数据库，所有人打开页面都会执行。"
   },
   {
     "slug": "pikachu_xxe.md",
