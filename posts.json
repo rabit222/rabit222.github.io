@@ -84,6 +84,19 @@
     "excerpt": "记录通过探测网站隐藏的.hg目录，利用工具下载元数据，并通过分析fncache文件直接获取flag的过程。"
   },
   {
+    "slug": "ctfhub_Web_union.md",
+    "raw": "ctfhub_Web_union.md",
+    "title": "CTFHub SQL注入 - UNION联合注入",
+    "date": "2026-11-13",
+    "tags": [
+      "CTFHub",
+      "Web",
+      "SQL注入",
+      "Union注入"
+    ],
+    "excerpt": "记录通过完整的 UNION 联合查询注入，逐步探测字段数、回显位，并最终爆出库名、表名获取 flag 的过程。"
+  },
+  {
     "slug": "ctfhub_Web_gitleak_index.md",
     "raw": "ctfhub_Web_gitleak_index.md",
     "title": "Git 泄露 - Index",
