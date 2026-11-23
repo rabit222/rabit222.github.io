@@ -1,30 +1,5 @@
 [
   {
-    "slug": "pikachu_blind_sqli.md",
-    "raw": "pikachu_blind_sqli.md",
-    "title": "Pikachu-盲注",
-    "date": "2026-11-23",
-    "tags": [
-      "Pikachu",
-      "WEB",
-      "SQL注入",
-      "盲注"
-    ],
-    "excerpt": "布尔盲注看真假，时间盲注看快慢，二分法逐字符取。"
-  },
-  {
-    "slug": "pikachu_bruteforce.md",
-    "raw": "pikachu_bruteforce.md",
-    "title": "Pikachu-暴力破解",
-    "date": "2026-11-23",
-    "tags": [
-      "Pikachu",
-      "WEB",
-      "暴力破解"
-    ],
-    "excerpt": "先看防护在哪一层：前端 JS、服务端校验还是 token，三种绕过方式完全不同。"
-  },
-  {
     "slug": "pikachu_burteforce_client.md",
     "raw": "pikachu_burteforce_client.md",
     "title": "Pikachu-客户端验证绕过",
@@ -73,18 +48,6 @@
     "excerpt": "每次请求带一次性 token，脚本先取 token 再提交就能继续撞。"
   },
   {
-    "slug": "pikachu_csrf.md",
-    "raw": "pikachu_csrf.md",
-    "title": "Pikachu-CSRF",
-    "date": "2026-11-23",
-    "tags": [
-      "Pikachu",
-      "WEB",
-      "CSRF"
-    ],
-    "excerpt": "用户已登录的情况下，伪造请求替他改资料。"
-  },
-  {
     "slug": "pikachu_csrf_get.md",
     "raw": "pikachu_csrf_get.md",
     "title": "Pikachu-CSRF(GET型)",
@@ -121,16 +84,16 @@
     "excerpt": "服务端校验 token，单靠伪造请求过不去，需要配合 XSS 先偷 token。"
   },
   {
-    "slug": "pikachu_fileinclude.md",
-    "raw": "pikachu_fileinclude.md",
-    "title": "Pikachu-文件包含",
+    "slug": "pikachu_dirtraversal.md",
+    "raw": "pikachu_dirtraversal.md",
+    "title": "Pikachu-目录遍历",
     "date": "2026-11-23",
     "tags": [
       "Pikachu",
       "WEB",
-      "文件包含"
+      "目录遍历"
     ],
-    "excerpt": "本地包含读文件，远程包含执行代码，还可以配合伪协议。"
+    "excerpt": "文件名参数可控，用 ../ 读到上级目录和其他文件。"
   },
   {
     "slug": "pikachu_fileinclude_local.md",
@@ -157,17 +120,40 @@
     "excerpt": "allow_url_include 开着时，包含远程文件就等于执行远程代码。"
   },
   {
-    "slug": "pikachu_rce.md",
-    "raw": "pikachu_rce.md",
-    "title": "Pikachu-命令执行",
+    "slug": "pikachu_infoleak.md",
+    "raw": "pikachu_infoleak.md",
+    "title": "Pikachu-敏感信息泄露",
     "date": "2026-11-23",
     "tags": [
       "Pikachu",
       "WEB",
-      "RCE",
-      "命令执行"
+      "信息泄露"
     ],
-    "excerpt": "eval 执行代码、ping 拼接命令，两种场景两种利用。"
+    "excerpt": "源码、注释、备份、报错里到处是线索。"
+  },
+  {
+    "slug": "pikachu_overpermission_horizontal.md",
+    "raw": "pikachu_overpermission_horizontal.md",
+    "title": "Pikachu-越权(水平)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "越权"
+    ],
+    "excerpt": "改个 id 就能看别人的资料，同一权限级别的越权。"
+  },
+  {
+    "slug": "pikachu_overpermission_vertical.md",
+    "raw": "pikachu_overpermission_vertical.md",
+    "title": "Pikachu-越权(垂直)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "越权"
+    ],
+    "excerpt": "普通用户直接访问管理员页面/接口，权限校验缺失。"
   },
   {
     "slug": "pikachu_rce_eval.md",
@@ -192,18 +178,6 @@
       "RCE"
     ],
     "excerpt": "ping 功能把 IP 拼进系统命令，用分号接自己的命令。"
-  },
-  {
-    "slug": "pikachu_sqli.md",
-    "raw": "pikachu_sqli.md",
-    "title": "Pikachu-SQL注入",
-    "date": "2026-11-23",
-    "tags": [
-      "Pikachu",
-      "WEB",
-      "SQL注入"
-    ],
-    "excerpt": "数字型、字符型、搜索型、xx 型，四种闭合方式对应四种 payload 构造。"
   },
   {
     "slug": "pikachu_sqli_blind_bool.md",
@@ -317,16 +291,40 @@
     "excerpt": "输入落在 ('xxx') 这种括号加引号的结构里，闭合要连括号一起处理。"
   },
   {
-    "slug": "pikachu_ssrf.md",
-    "raw": "pikachu_ssrf.md",
-    "title": "Pikachu-SSRF",
+    "slug": "pikachu_ssrf_curl.md",
+    "raw": "pikachu_ssrf_curl.md",
+    "title": "Pikachu-SSRF(curl)",
     "date": "2026-11-23",
     "tags": [
       "Pikachu",
       "WEB",
       "SSRF"
     ],
-    "excerpt": "curl 和 file_get_contents 两种实现，让服务器替你发请求。"
+    "excerpt": "用 curl 实现请求转发，支持 file/dict/gopher 等协议。"
+  },
+  {
+    "slug": "pikachu_ssrf_fgc.md",
+    "raw": "pikachu_ssrf_fgc.md",
+    "title": "Pikachu-SSRF(file_get_contents)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "SSRF"
+    ],
+    "excerpt": "file_get_contents 的实现，受 allow_url_fopen 限制，但仍能读文件、访内网。"
+  },
+  {
+    "slug": "pikachu_unsafedownload.md",
+    "raw": "pikachu_unsafedownload.md",
+    "title": "Pikachu-不安全的文件下载",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "文件下载"
+    ],
+    "excerpt": "下载参数可控，用路径穿越下载服务器上的任意文件。"
   },
   {
     "slug": "pikachu_unserialize.md",
@@ -339,18 +337,6 @@
       "反序列化"
     ],
     "excerpt": "把恶意对象序列化后传进去，触发魔术方法执行代码。"
-  },
-  {
-    "slug": "pikachu_upload.md",
-    "raw": "pikachu_upload.md",
-    "title": "Pikachu-文件上传",
-    "date": "2026-11-23",
-    "tags": [
-      "Pikachu",
-      "WEB",
-      "文件上传"
-    ],
-    "excerpt": "客户端校验、服务端校验、getimagesize 检查，三种防护三种绕法。"
   },
   {
     "slug": "pikachu_upload_client.md",
@@ -389,16 +375,16 @@
     "excerpt": "服务端校验后缀白名单，改用可执行的其他扩展名或配合解析配置。"
   },
   {
-    "slug": "pikachu_xss.md",
-    "raw": "pikachu_xss.md",
-    "title": "Pikachu-XSS",
+    "slug": "pikachu_urlredirect.md",
+    "raw": "pikachu_urlredirect.md",
+    "title": "Pikachu-URL重定向",
     "date": "2026-11-23",
     "tags": [
       "Pikachu",
       "WEB",
-      "XSS"
+      "重定向"
     ],
-    "excerpt": "反射、存储、DOM 三种场景，先判断输出上下文再构造 payload。"
+    "excerpt": "跳转参数不校验，把用户带到钓鱼站。"
   },
   {
     "slug": "pikachu_xss_blind.md",
