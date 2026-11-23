@@ -85,6 +85,42 @@
     "excerpt": "用户已登录的情况下，伪造请求替他改资料。"
   },
   {
+    "slug": "pikachu_csrf_get.md",
+    "raw": "pikachu_csrf_get.md",
+    "title": "Pikachu-CSRF(GET型)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "CSRF"
+    ],
+    "excerpt": "改资料的请求是 GET，把 URL 做成链接让受害者点一下就改。"
+  },
+  {
+    "slug": "pikachu_csrf_post.md",
+    "raw": "pikachu_csrf_post.md",
+    "title": "Pikachu-CSRF(POST型)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "CSRF"
+    ],
+    "excerpt": "POST 请求不能靠链接触发，写一个自动提交的 HTML 表单。"
+  },
+  {
+    "slug": "pikachu_csrf_token.md",
+    "raw": "pikachu_csrf_token.md",
+    "title": "Pikachu-CSRF(Token型)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "CSRF"
+    ],
+    "excerpt": "服务端校验 token，单靠伪造请求过不去，需要配合 XSS 先偷 token。"
+  },
+  {
     "slug": "pikachu_fileinclude.md",
     "raw": "pikachu_fileinclude.md",
     "title": "Pikachu-文件包含",
@@ -95,6 +131,30 @@
       "文件包含"
     ],
     "excerpt": "本地包含读文件，远程包含执行代码，还可以配合伪协议。"
+  },
+  {
+    "slug": "pikachu_fileinclude_local.md",
+    "raw": "pikachu_fileinclude_local.md",
+    "title": "Pikachu-文件包含(本地)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "文件包含"
+    ],
+    "excerpt": "参数拼进 include，用 ../ 穿越读系统文件和站点源码。"
+  },
+  {
+    "slug": "pikachu_fileinclude_remote.md",
+    "raw": "pikachu_fileinclude_remote.md",
+    "title": "Pikachu-文件包含(远程)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "文件包含"
+    ],
+    "excerpt": "allow_url_include 开着时，包含远程文件就等于执行远程代码。"
   },
   {
     "slug": "pikachu_rce.md",
@@ -108,6 +168,30 @@
       "命令执行"
     ],
     "excerpt": "eval 执行代码、ping 拼接命令，两种场景两种利用。"
+  },
+  {
+    "slug": "pikachu_rce_eval.md",
+    "raw": "pikachu_rce_eval.md",
+    "title": "Pikachu-RCE(eval代码执行)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "RCE"
+    ],
+    "excerpt": "输入被 eval 当 PHP 代码执行，直接写 system 或读文件函数。"
+  },
+  {
+    "slug": "pikachu_rce_ping.md",
+    "raw": "pikachu_rce_ping.md",
+    "title": "Pikachu-RCE(命令执行)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "RCE"
+    ],
+    "excerpt": "ping 功能把 IP 拼进系统命令，用分号接自己的命令。"
   },
   {
     "slug": "pikachu_sqli.md",
@@ -267,6 +351,42 @@
       "文件上传"
     ],
     "excerpt": "客户端校验、服务端校验、getimagesize 检查，三种防护三种绕法。"
+  },
+  {
+    "slug": "pikachu_upload_client.md",
+    "raw": "pikachu_upload_client.md",
+    "title": "Pikachu-文件上传(客户端检查)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "文件上传"
+    ],
+    "excerpt": "只在 JS 里校验后缀，抓包改包直接绕过。"
+  },
+  {
+    "slug": "pikachu_upload_getimagesize.md",
+    "raw": "pikachu_upload_getimagesize.md",
+    "title": "Pikachu-文件上传(getimagesize)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "文件上传"
+    ],
+    "excerpt": "服务端用 getimagesize 检查是不是真图片，加图片头做图片马。"
+  },
+  {
+    "slug": "pikachu_upload_server.md",
+    "raw": "pikachu_upload_server.md",
+    "title": "Pikachu-文件上传(服务端检查)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "文件上传"
+    ],
+    "excerpt": "服务端校验后缀白名单，改用可执行的其他扩展名或配合解析配置。"
   },
   {
     "slug": "pikachu_xss.md",
