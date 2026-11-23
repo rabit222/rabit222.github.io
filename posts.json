@@ -1,5 +1,77 @@
 [
   {
+    "slug": "ctfhub_Misc_crack_hash.md",
+    "raw": "ctfhub_Misc_crack_hash.md",
+    "title": "密码破解-哈希破解",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "Misc",
+      "密码破解"
+    ],
+    "excerpt": "先识别哈希类型，再用 hashcat 或在线站点反查。"
+  },
+  {
+    "slug": "ctfhub_Misc_crack_office.md",
+    "raw": "ctfhub_Misc_crack_office.md",
+    "title": "密码破解-Office密码破解",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "Misc",
+      "密码破解"
+    ],
+    "excerpt": "office2john 提取哈希，john 跑字典。"
+  },
+  {
+    "slug": "ctfhub_Misc_crack_rar.md",
+    "raw": "ctfhub_Misc_crack_rar.md",
+    "title": "密码破解-RAR密码破解",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "Misc",
+      "密码破解"
+    ],
+    "excerpt": "rar2john 提取哈希，john 跑字典。"
+  },
+  {
+    "slug": "ctfhub_Misc_crack_wifi.md",
+    "raw": "ctfhub_Misc_crack_wifi.md",
+    "title": "密码破解-WiFi密码破解",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "Misc",
+      "密码破解"
+    ],
+    "excerpt": "抓到的握手包用 aircrack-ng 跑字典，验证 PMK。"
+  },
+  {
+    "slug": "ctfhub_Misc_crack_zip.md",
+    "raw": "ctfhub_Misc_crack_zip.md",
+    "title": "密码破解-ZIP密码破解",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "Misc",
+      "密码破解"
+    ],
+    "excerpt": "zip2john 或 fcrackzip，字典爆破出密码。"
+  },
+  {
+    "slug": "ctfhub_Misc_crack_zip_pseudo.md",
+    "raw": "ctfhub_Misc_crack_zip_pseudo.md",
+    "title": "密码破解-ZIP伪加密",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "Misc",
+      "密码破解"
+    ],
+    "excerpt": "没密码却提示加密，改掉两个标志位就能正常解压。"
+  },
+  {
     "slug": "ctfhub_Misc_forensics_bitlocker.md",
     "raw": "ctfhub_Misc_forensics_bitlocker.md",
     "title": "电子取证-密钥恢复",
@@ -34,6 +106,54 @@
       "电子取证"
     ],
     "excerpt": "内存镜像里有进程、命令行、打开的文件，用 Volatility 挖出来。"
+  },
+  {
+    "slug": "ctfhub_Misc_steg_audio.md",
+    "raw": "ctfhub_Misc_steg_audio.md",
+    "title": "数据隐写-音频隐写",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "Misc",
+      "隐写"
+    ],
+    "excerpt": "频谱图里画字、波形里藏摩斯，Audacity 是最趁手的工具。"
+  },
+  {
+    "slug": "ctfhub_Misc_steg_image.md",
+    "raw": "ctfhub_Misc_steg_image.md",
+    "title": "数据隐写-图片隐写",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "Misc",
+      "隐写"
+    ],
+    "excerpt": "图片尾部藏文件、LSB 藏比特、EXIF 藏文本，逐个查。"
+  },
+  {
+    "slug": "ctfhub_Misc_steg_ntfs.md",
+    "raw": "ctfhub_Misc_steg_ntfs.md",
+    "title": "数据隐写-NTFS流",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "Misc",
+      "隐写"
+    ],
+    "excerpt": "NTFS 的备用数据流（ADS）能藏文件，资源管理器里看不见。"
+  },
+  {
+    "slug": "ctfhub_Misc_steg_video.md",
+    "raw": "ctfhub_Misc_steg_video.md",
+    "title": "数据隐写-视频隐写",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "Misc",
+      "隐写"
+    ],
+    "excerpt": "抽帧看图、看多轨音频、看文件尾部，视频里的信息藏在图层里。"
   },
   {
     "slug": "ctfhub_Misc_traffic_database.md",
