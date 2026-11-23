@@ -1,5 +1,89 @@
 [
   {
+    "slug": "ctfhub_Misc_forensics_bitlocker.md",
+    "raw": "ctfhub_Misc_forensics_bitlocker.md",
+    "title": "电子取证-密钥恢复",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "Misc",
+      "电子取证"
+    ],
+    "excerpt": "BitLocker 加密盘旁边常留着 .BEK 恢复密钥文件。"
+  },
+  {
+    "slug": "ctfhub_Misc_forensics_disk.md",
+    "raw": "ctfhub_Misc_forensics_disk.md",
+    "title": "电子取证-硬盘取证",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "Misc",
+      "电子取证"
+    ],
+    "excerpt": "拿到磁盘镜像，找回被删除的文件、浏览目录结构。"
+  },
+  {
+    "slug": "ctfhub_Misc_forensics_memory.md",
+    "raw": "ctfhub_Misc_forensics_memory.md",
+    "title": "电子取证-内存取证",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "Misc",
+      "电子取证"
+    ],
+    "excerpt": "内存镜像里有进程、命令行、打开的文件，用 Volatility 挖出来。"
+  },
+  {
+    "slug": "ctfhub_Misc_traffic_database.md",
+    "raw": "ctfhub_Misc_traffic_database.md",
+    "title": "流量分析-数据库类流量",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "Misc",
+      "流量分析"
+    ],
+    "excerpt": "抓包里全是 MySQL 协议，追踪流能看到执行过的 SQL。"
+  },
+  {
+    "slug": "ctfhub_Misc_traffic_mail.md",
+    "raw": "ctfhub_Misc_traffic_mail.md",
+    "title": "流量分析-邮件流量",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "Misc",
+      "流量分析"
+    ],
+    "excerpt": "SMTP/POP3 是明文，追踪流能看到邮件正文和附件。"
+  },
+  {
+    "slug": "ctfhub_Misc_traffic_protocol.md",
+    "raw": "ctfhub_Misc_traffic_protocol.md",
+    "title": "流量分析-协议流量分析",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "Misc",
+      "流量分析"
+    ],
+    "excerpt": "HTTP 流量里导出对象，下载的文件往往就是答案。"
+  },
+  {
+    "slug": "ctfhub_Misc_traffic_raw.md",
+    "raw": "ctfhub_Misc_traffic_raw.md",
+    "title": "流量分析-原始流量",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "Misc",
+      "流量分析"
+    ],
+    "excerpt": "没有协议解析，只能靠文件头和数据特征手工还原。"
+  },
+  {
     "slug": "ctfhub_Web_Info_ds_store.md",
     "raw": "ctfhub_Web_Info_ds_store.md",
     "title": "信息泄露-.DS_Store",
@@ -10,6 +94,42 @@
       "信息泄露"
     ],
     "excerpt": "macOS 压缩目录时留下的 .DS_Store 会泄露目录里所有文件名。"
+  },
+  {
+    "slug": "ctfhub_Web_Info_response_header.md",
+    "raw": "ctfhub_Web_Info_response_header.md",
+    "title": "信息泄露-响应头泄露",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "信息泄露"
+    ],
+    "excerpt": "Server、X-Powered-By、Set-Cookie 都在告诉你后端是什么。"
+  },
+  {
+    "slug": "ctfhub_Web_Info_robots.md",
+    "raw": "ctfhub_Web_Info_robots.md",
+    "title": "信息泄露-robots.txt",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "信息泄露"
+    ],
+    "excerpt": "robots.txt 里 Disallow 的路径往往就是藏东西的地方。"
+  },
+  {
+    "slug": "ctfhub_Web_Info_www_backup.md",
+    "raw": "ctfhub_Web_Info_www_backup.md",
+    "title": "信息泄露-网站源码备份",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "信息泄露"
+    ],
+    "excerpt": "打包上传时忘了删备份文件，www.zip 就在根目录躺着。"
   },
   {
     "slug": "ctfhub_Web_LFI_local.md",
