@@ -1,5 +1,131 @@
 [
   {
+    "slug": "ctfhub_Web_Info_ds_store.md",
+    "raw": "ctfhub_Web_Info_ds_store.md",
+    "title": "信息泄露-.DS_Store",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "信息泄露"
+    ],
+    "excerpt": "macOS 压缩目录时留下的 .DS_Store 会泄露目录里所有文件名。"
+  },
+  {
+    "slug": "ctfhub_Web_LFI_local.md",
+    "raw": "ctfhub_Web_LFI_local.md",
+    "title": "文件包含-本地文件包含",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "文件包含"
+    ],
+    "excerpt": "参数直接拼进 include，用 ../ 穿越到系统文件。"
+  },
+  {
+    "slug": "ctfhub_Web_LFI_phpfilter.md",
+    "raw": "ctfhub_Web_LFI_phpfilter.md",
+    "title": "文件包含-PHP伪协议",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "文件包含"
+    ],
+    "excerpt": "用 php://filter 把源码 base64 编码后读出来，绕过 PHP 解析。"
+  },
+  {
+    "slug": "ctfhub_Web_LFI_remote.md",
+    "raw": "ctfhub_Web_LFI_remote.md",
+    "title": "文件包含-远程文件包含",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "文件包含"
+    ],
+    "excerpt": "allow_url_include 开着时，include 一个远程地址就能执行远程代码。"
+  },
+  {
+    "slug": "ctfhub_Web_RCE_cmd_inject.md",
+    "raw": "ctfhub_Web_RCE_cmd_inject.md",
+    "title": "命令执行-命令注入",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "RCE",
+      "命令执行"
+    ],
+    "excerpt": "参数被拼进 shell 命令里，用分号接自己的命令。"
+  },
+  {
+    "slug": "ctfhub_Web_RCE_filter_all.md",
+    "raw": "ctfhub_Web_RCE_filter_all.md",
+    "title": "命令执行-综合过滤",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "RCE",
+      "命令执行"
+    ],
+    "excerpt": "空格、关键字、连接符全被过滤，用 base64 编码整条命令绕过去。"
+  },
+  {
+    "slug": "ctfhub_Web_RCE_filter_cat.md",
+    "raw": "ctfhub_Web_RCE_filter_cat.md",
+    "title": "命令执行-过滤cat",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "RCE",
+      "命令执行"
+    ],
+    "excerpt": "cat 被黑名单拦了，换 tac/less/more/head 或者拆开来写。"
+  },
+  {
+    "slug": "ctfhub_Web_RCE_filter_operator.md",
+    "raw": "ctfhub_Web_RCE_filter_operator.md",
+    "title": "命令执行-过滤运算符",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "RCE",
+      "命令执行"
+    ],
+    "excerpt": "分号和管道被拦，用换行、反引号、$( ) 命令替换继续执行。"
+  },
+  {
+    "slug": "ctfhub_Web_RCE_filter_sep.md",
+    "raw": "ctfhub_Web_RCE_filter_sep.md",
+    "title": "命令执行-过滤目录分隔符",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "RCE",
+      "命令执行"
+    ],
+    "excerpt": "斜杠被过滤，用 cd 逐级进目录，或者干脆不用路径。"
+  },
+  {
+    "slug": "ctfhub_Web_RCE_filter_space.md",
+    "raw": "ctfhub_Web_RCE_filter_space.md",
+    "title": "命令执行-过滤空格",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "RCE",
+      "命令执行"
+    ],
+    "excerpt": "空格被过滤，用 IFS、Tab、重定向符把命令重新拼起来。"
+  },
+  {
     "slug": "ctfhub_Web_SQL_boolean_blind.md",
     "raw": "ctfhub_Web_SQL_boolean_blind.md",
     "title": "SQL注入-布尔盲注",
@@ -76,6 +202,126 @@
       "编码"
     ],
     "excerpt": "GBK 编码下用 %df 吃掉转义反斜杠，让 addslashes 的防护失效。"
+  },
+  {
+    "slug": "ctfhub_Web_SSRF_inner.md",
+    "raw": "ctfhub_Web_SSRF_inner.md",
+    "title": "SSRF-内网访问",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "SSRF"
+    ],
+    "excerpt": "让服务器替你访问 127.0.0.1，绕过外网隔离。"
+  },
+  {
+    "slug": "ctfhub_Web_SSRF_portscan.md",
+    "raw": "ctfhub_Web_SSRF_portscan.md",
+    "title": "SSRF-端口扫描",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "SSRF"
+    ],
+    "excerpt": "根据响应差异和内网端口开放情况，扫出目标服务。"
+  },
+  {
+    "slug": "ctfhub_Web_SSRF_pseudo.md",
+    "raw": "ctfhub_Web_SSRF_pseudo.md",
+    "title": "SSRF-伪协议读取文件",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "SSRF"
+    ],
+    "excerpt": "用 file:// 让服务器读本地文件，gopher/dict 还能打内网服务。"
+  },
+  {
+    "slug": "ctfhub_Web_Upload_00_truncate.md",
+    "raw": "ctfhub_Web_Upload_00_truncate.md",
+    "title": "文件上传-00截断",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "文件上传"
+    ],
+    "excerpt": "保存路径由参数控制时，用 %00 截断掉后面的固定后缀。"
+  },
+  {
+    "slug": "ctfhub_Web_Upload_double_suffix.md",
+    "raw": "ctfhub_Web_Upload_double_suffix.md",
+    "title": "文件上传-双写后缀",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "文件上传"
+    ],
+    "excerpt": "过滤规则是把 php 替换成空，写两遍就还原成 php。"
+  },
+  {
+    "slug": "ctfhub_Web_Upload_file_header.md",
+    "raw": "ctfhub_Web_Upload_file_header.md",
+    "title": "文件上传-文件头检查",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "文件上传"
+    ],
+    "excerpt": "服务器读前几个字节判断类型，加个 GIF89a 前缀就能骗过去。"
+  },
+  {
+    "slug": "ctfhub_Web_Upload_frontend.md",
+    "raw": "ctfhub_Web_Upload_frontend.md",
+    "title": "文件上传-前端验证",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "文件上传"
+    ],
+    "excerpt": "只在前端 JS 里校验后缀，改包或者删掉校验逻辑就绕过去了。"
+  },
+  {
+    "slug": "ctfhub_Web_Upload_htaccess.md",
+    "raw": "ctfhub_Web_Upload_htaccess.md",
+    "title": "文件上传-.htaccess",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "文件上传"
+    ],
+    "excerpt": "后缀白名单只放行图片时，先传 .htaccess 把 png 当 PHP 解析。"
+  },
+  {
+    "slug": "ctfhub_Web_Upload_mime.md",
+    "raw": "ctfhub_Web_Upload_mime.md",
+    "title": "文件上传-MIME绕过",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "文件上传"
+    ],
+    "excerpt": "服务器只信 Content-Type 请求头，改成 image/png 就过了。"
+  },
+  {
+    "slug": "ctfhub_Web_Upload_none.md",
+    "raw": "ctfhub_Web_Upload_none.md",
+    "title": "文件上传-无验证",
+    "date": "2026-11-18",
+    "tags": [
+      "CTFHub",
+      "WEB",
+      "文件上传"
+    ],
+    "excerpt": "前端后端都不检查，直接传 PHP 木马就能执行。"
   },
   {
     "slug": "ctfhub_Web_XSS_dom.md",
