@@ -206,6 +206,18 @@
     "excerpt": "页面完全没差异，用 sleep() 的耗时差判断真假。"
   },
   {
+    "slug": "pikachu_sqli_delete.md",
+    "raw": "pikachu_sqli_delete.md",
+    "title": "Pikachu-SQL注入(delete)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "SQL注入"
+    ],
+    "excerpt": "id 被拼进 DELETE 语句，用条件控制删除与否，或者报错注入取数据。"
+  },
+  {
     "slug": "pikachu_sqli_header.md",
     "raw": "pikachu_sqli_header.md",
     "title": "Pikachu-SQL注入(请求头注入)",
@@ -409,6 +421,66 @@
       "XSS"
     ],
     "excerpt": "漏洞在前端 JS，数据不进服务端，服务端日志里看不到。"
+  },
+  {
+    "slug": "pikachu_xss_dom_x.md",
+    "raw": "pikachu_xss_dom_x.md",
+    "title": "Pikachu-XSS(DOM型进阶)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "XSS"
+    ],
+    "excerpt": "先点链接才触发，location.search 的内容被塞进 innerHTML。"
+  },
+  {
+    "slug": "pikachu_xss_filter.md",
+    "raw": "pikachu_xss_filter.md",
+    "title": "Pikachu-XSS(过滤绕过)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "XSS"
+    ],
+    "excerpt": "script 被替换为空，换 img/onerror 或变形写法绕过去。"
+  },
+  {
+    "slug": "pikachu_xss_href.md",
+    "raw": "pikachu_xss_href.md",
+    "title": "Pikachu-XSS(href输出)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "XSS"
+    ],
+    "excerpt": "引号都转义了，但 href 里可以放 javascript: 伪协议。"
+  },
+  {
+    "slug": "pikachu_xss_htmlspecialchars.md",
+    "raw": "pikachu_xss_htmlspecialchars.md",
+    "title": "Pikachu-XSS(htmlspecialchars)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "XSS"
+    ],
+    "excerpt": "转义了双引号却没转单引号，输出在单引号属性里就能闭合。"
+  },
+  {
+    "slug": "pikachu_xss_js.md",
+    "raw": "pikachu_xss_js.md",
+    "title": "Pikachu-XSS(js输出)",
+    "date": "2026-11-23",
+    "tags": [
+      "Pikachu",
+      "WEB",
+      "XSS"
+    ],
+    "excerpt": "输入被拼进 script 里的变量，用引号或 </script> 截断。"
   },
   {
     "slug": "pikachu_xss_post.md",
